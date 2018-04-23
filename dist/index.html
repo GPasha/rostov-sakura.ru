@@ -9,20 +9,36 @@
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">-->
 </head>
 <body>
+<script>
+
+    var menuBtn = document.querySelector("header .wrapper .menuBtn");
+    var leftMenu = document.querySelectorAll("header .wrapper .left-menu ul li");
+
+    function hide() {
+
+    }
+
+</script>
 <header>
     <div class="wrapper">
-        <nav class="navbar-head row p-0 m-0 border">
-            <div class="left-menu col-xl-10 col-lg-9 col-md-9 col-sm-8  border-right p-0 m-0">
+        <nav class="navbar-head container-fluid pos-f-t row justify-content-between p-0 m-0 border">
+            <div class="menuBtn col-xl-1 col-lg-1 col-md-1 col-sm-2 col-3">
+                <img src="img/menu.png" width="70" alt="menu logo rostov sakura">
+            </div>
+            <div class="logo col-xl-1 col-lg-1 col-md-1 col-sm-2 col-3 d-flex justify-content-center align-items-center">
+                <a href="#"><img src="img/menufood.png" width="50" alt="logo rostov sakura"></a>
+            </div>
+            <div class="left-menu col-xl-9 col-lg-8 col-md-8 col-sm-7 p-0 m-0">
                 <ul>
-                    <li><a href="#">Логотип</a></li>
                     <li><a href="#">Акции</a></li>
                     <li><a href="#">Вакансии</a></li>
                     <li><a href="#">Контакты</a></li>
                 </ul>
             </div>
-            <div class="right-basket col-xl-2 col-lg-3 col-md-3 col-sm-4  p-0 m-0">
+
+            <div class="right-basket justify-content-center border-left p-0 m-0 border-top">
                 <img src="img/bag.png" width="30" alt="bag rostov sakura">
-                <p>Пустая корзина</p>
+                <p class="ml-2">Пустая корзина</p>
             </div>
         </nav>
     </div>
@@ -67,7 +83,7 @@
                             <img src="#" alt="logo rostov sakura">
                         </div>
                         <div class="textFoter">
-                            <p>Доставка суши — онлайн сервис заказа<br>суши и других блюд в Ростове.</p>
+                            <p>Онлайн сервис заказа суши<br>и других блюд в Ростове.</p>
 
                             <p>Прием заказов: c 10:00 до 4:45 <br>
                                 Телефон: +7 495 234-24-24</p>
