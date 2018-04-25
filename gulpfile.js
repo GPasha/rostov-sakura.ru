@@ -1,88 +1,263 @@
-var gulp = require("gulp"),
-	sass = require("gulp-sass"),
-	browserSync = require("browser-sync"),
-	concat = require("gulp-concat"),
-	uglify = require("gulp-uglifyjs"),
-	cssnano = require("gulp-cssnano"),
-	rename = require("gulp-rename"),
-	del = require("del"),
-	imagemin = require("gulp-imagemin"),
-	pngquant = require("imagemin-pngquant"),
-	cache = require("gulp-cache"),
-    autoprefixer = require('gulp-autoprefixer');
+/* подключаем gulp и плагины */
+var gulp = require('gulp'), // подключаем Gulp
+    browserSync = require('browser-sync'), // сервер для работы и автоматического обновления
+    gulpSequence = require('gulp-sequence'),
+    plumber = require('gulp-plumber'), // отслеживания ошибок
+    sourcemaps = require('gulp-sourcemaps'), // генерациz карты исходных файлов
+    sass = require('gulp-sass'), //компиляция SASS в CSS
+    autoprefixer = require('gulp-autoprefixer'), //автоматическая установки автопрефиксов
+    gcmq = require('gulp-group-css-media-queries'), // Обьединяем все медиа запросы
+    cleanCSS = require('gulp-clean-css'), // минимизация CSS
+    critical = require('critical'), // Создание Критичного CSS
+    uglify = require('gulp-uglify'), // минимизации JavaScript
+    cache = require('gulp-cache'), // кэширование
+    imagemin = require('gulp-imagemin'), //сжатие PNG, JPEG, GIF и SVG изображений
+    imageminJpegRecompress = require('imagemin-jpeg-recompress'), // сжатие jpeg	
+    pngquant = require('imagemin-pngquant'), // сжатие png
+    del = require('del'), // плагин для удаления файлов и каталогов
+    rigger = require('gulp-rigger'), //импорт содержимого одного файла в другой
+    embed = require('gulp-image-embed'); // Добавляет картинки в css в формате BASE64
 
-gulp.task("sass", function() {
-	return gulp.src("app/sass/**/*.scss")
-	.pipe(sass())
-    .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
-	.pipe(gulp.dest("app/css"))
-	.pipe(browserSync.reload({stream:true}))
+/* параметры для gulp-autoprefixer */
+var autoprefixerList = [
+    'Chrome >= 45',
+    'Firefox ESR',
+    'Edge >= 12',
+    'Explorer >= 10',
+    'iOS >= 9',
+    'Safari >= 9',
+    'Android >= 4.4',
+    'Opera >= 30'
+];
+
+/* пути к исходным файлам (src), к готовым файлам (build), а также к тем, за изменениями которых нужно наблюдать (watch) */
+var path = {
+    dist: {
+        html: 'dist/',
+        js: 'dist/js/',
+        css: 'dist/css/',
+        img: 'dist/img/',
+        fonts: 'dist/fonts/'
+    },
+    src: {
+        html: 'app/*.html',
+        js: 'app/js/main.js',
+        style: 'app/css/main.scss',
+        img: 'app/img/**/*.*',
+        fonts: 'app/fonts/**/*.*'
+    },
+    watch: {
+        html: 'app/**/*.html',
+        js: 'app/js/**/*.js',
+        css: 'app/css/**/*.scss',
+        img: 'app/img/*.*',
+        fonts: 'app/fonts/**/*.*'
+    },
+    clean: './dist'
+};
+
+/* настройки сервера */
+var config = {
+    server: {
+        baseDir: './dist'
+    },
+    notify: false
+};
+
+/* задачи */
+
+// запуск сервера 
+gulp.task('browserSync', function () {
+    browserSync.init(config);
 });
 
-gulp.task("scripts",function(){
-	return gulp.src([
-		"app/libs/jquery/dist/jquery.min.js",
-		"app/libs/magnific-popup/dist/jquery.magnific-popup.min.js"
-		])
-	.pipe(concat(".libs.min.js"))
-	.pipe(uglify())
-	.pipe(gulp.dest("app/js"));
-});
-gulp.task("css-libs", ["sass"],function(){
-	return gulp.src("app/css/libs.css")
-	.pipe(cssnano())
-	.pipe(rename({suffix:".min"}))
-	.pipe(gulp.dest("app/css"));
+// сборка html
+gulp.task('html:build', function () {
+    gulp.src(path.src.html) // выбор всех html файлов по указанному пути
+        .pipe(plumber()) // отслеживание ошибок
+        .pipe(rigger()) // импорт вложений
+        .pipe(gulp.dest(path.dist.html)) // выкладывание готовых файлов
+        .pipe(browserSync.reload({stream: true})); // перезагрузка сервера
 });
 
-gulp.task("browser-sync", function(){
-	browserSync({
-		server:{
-			baseDir:"app"
-		},
-		notify:false
-	});
+// сборка стилей
+gulp.task('css:build', function () {
+    gulp.src(path.src.style) // получим main.scss
+        .pipe(plumber()) // для отслеживания ошибок
+        //.pipe(sourcemaps.init()) // инициализируем sourcemap
+        .pipe(sass()) // scss -> css
+        .pipe(autoprefixer({ // добавим префиксы
+            browsers: autoprefixerList
+        }))
+        //.pipe(cleanCSS()) // минимизируем CSS
+        //.pipe(sourcemaps.write('./')) // записываем sourcemap
+        .pipe(embed({
+            asset: 'app/',
+            extension: ['svg', 'png', 'gif']
+        }))
+        .pipe(gcmq()) // Обьединяем медиа запросы
+        .pipe(gulp.dest(path.dist.css)) // выгружаем в build
+        .pipe(browserSync.reload({stream: true})); // перезагрузим сервер
 });
 
-gulp.task("clean", function(){
-	return del.sync("dist");
+gulp.task('css:critical', function () {
+    setTimeout(function () {
+        critical.generate({
+            inline: false,
+            base: path.dist.html,
+            src: 'index.html',
+            css: [path.dist.html + 'css/main.css'],
+            dest: 'css/critical.css',
+            dimensions: [{
+                height: 568,
+                width: 320
+            }, {
+                width: 1560,
+                height: 900
+            }]
+
+        });
+    }, 500);
 });
 
-gulp.task("clear", function(){
-    return cache.clearAll();
+// сборка js
+gulp.task('js:build', function () {
+    gulp.src(path.src.js) // получим файл main.js
+        .pipe(plumber()) // для отслеживания ошибок
+        .pipe(rigger()) // импортируем все указанные файлы в main.js
+        //.pipe(sourcemaps.init()) //инициализируем sourcemap
+        .pipe(uglify()) // минимизируем js
+        //.pipe(sourcemaps.write('./')) //  записываем sourcemap
+        .pipe(gulp.dest(path.dist.js)) // положим готовый файл
+        .pipe(browserSync.reload({stream: true})); // перезагрузим сервер
 });
 
-gulp.task("img", function(){
-	return gulp.src("app/img/**/*")
-	.pipe(cache(imagemin({
-		interlaced: true,
-		progressive: true,
-		svgoPlugins:[{removeViewBox: false}],
-		une:[pngquant()]
-	})))
-	.pipe(gulp.dest("dist/img"));
+// перенос шрифтов
+gulp.task('fonts:build', function () {
+    gulp.src(path.src.fonts)
+        .pipe(gulp.dest(path.dist.fonts));
 });
 
-gulp.task("watch", ["browser-sync", "css-libs","scripts"],function(){
-	gulp.watch("app/sass/**/*.sass", ["sass"]);
-	gulp.watch("app/*.html", browserSync.reload);
-	gulp.watch("app/js/**/*.html", browserSync.reload);
+// обработка картинок
+// gulp.task('image:build', function () {
+//     gulp.src(path.src.img) // путь с исходниками картинок
+//         .pipe(cache(imagemin([ // сжатие изображений
+// 		    imagemin.gifsicle({interlaced: true}),
+//             imageminJpegRecompress({
+//                 progressive: true,
+//                 max: 90,
+//                 min: 80
+//             }),
+//             pngquant(),
+//             imagemin.svgo({plugins: [{removeViewBox: false}]})
+// 		])))
+//         .pipe(gulp.dest(path.dist.img)); // выгрузка готовых файлов
+// });
+
+gulp.task('image:build', function () {
+    gulp.src(path.src.img)
+    //.pipe(imagemin())
+        .pipe(gulp.dest(path.dist.img));
 });
 
-gulp.task("build", ["clean", "img", "sass","scripts"],function(){
 
-	var buildCss = gulp.src([
-		"app/css/main.css",
-		"app/css/libs.min.css"
-		])
-		.pipe(gulp.dest("dist/css"));
-
-	var buildFonts = gulp.src("app/fonts/**/*")
-	.pipe(gulp.dest("dist.fonts"));
-
-	var buildJs = gulp.src("app/js/**/*")
-	.pipe(gulp.dest("dist/js"));
-
-	var buildHtml = gulp.src("app/*.html")
-	.pipe(gulp.dest("dist"))
+// удаление каталога build 
+gulp.task('clean:build', function () {
+    del.sync(path.clean);
 });
+
+// очистка кэша
+gulp.task('cache:clear', function () {
+    cache.clearAll();
+});
+
+// сборка
+gulp.task('build',
+    gulpSequence([
+        'clean:build',
+        'html:build',
+        'css:build',
+        'js:build',
+        'fonts:build',
+        'image:build'
+    ], 'css:critical'));
+
+// запуск задач при изменении файлов
+gulp.task('watch', function () {
+    gulp.watch(path.watch.html,
+        function (event) {
+            gulpSequence(['html:build'])(function (err) {
+                if (err) console.log(err)
+            })
+        }, function (done) {
+            browserSync.reload();
+            done();
+        });
+    gulp.watch(
+        path.watch.css,
+        function (event) {
+            gulpSequence(['css:build'], 'css:critical')(function (err) {
+                if (err) console.log(err)
+            })
+        },
+        function (done) {
+            browserSync.reload();
+            done();
+        });
+    gulp.watch(path.watch.js, ['js:build'], function (done) {
+        browserSync.reload();
+        done();
+    });
+    gulp.watch(path.watch.img, ['image:build'], function (done) {
+        browserSync.reload();
+        done();
+    });
+    gulp.watch(path.watch.fonts, ['fonts:build'], function (done) {
+        browserSync.reload();
+        done();
+    });
+});
+
+// задача по умолчанию
+gulp.task('default', [
+    'clean:build',
+    'build',
+    'browserSync',
+    'watch'
+]);
+
+
+// min css
+// gulp.task('css:min', function () {
+// 	return gulp.src('dist/assets/main.css')
+// 	pipe(uncss({
+// 		html: ['dist/*.html']
+// 	}))
+// 	.pipe(cssmin())
+// 	.pipe(rename({suffix: '.min'}))
+// 	.pipe(gulp.dest('dist/assets/css'))
+// 	.pipe(browserSync.reload({stream: true}));
+// });
+
+
+/*// sprite
+gulp.task('sprite', function () {
+	var spriteData = gulp.src('app/img/icons/*.png').pipe(spritesmith({
+		imgName: 'sprite.png',
+		cssName: 'sprite.css',
+		imgPath: '../img/sprite.png'
+	}));
+
+	// sprite image
+	var imgStream = spriteData.img
+	.pipe(buffer())
+	.pipe(imagemin())
+	.pipe(gulp.dest('dist/assets/img'));
+
+	// sprite css
+	var cssStream = spriteData.css
+	.pipe(gulp.dest('app/css'));
+
+	return merge(imgStream, cssStream)
+	.pipe(browserSync.reload({stream:true}));
+});*/

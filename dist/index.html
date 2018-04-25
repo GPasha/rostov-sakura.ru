@@ -2,37 +2,38 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rostov-sakura</title>
-    <link rel="stylesheet" type="text/css" href="css/libs.min.css">
+    <link rel="stylesheet" type="text/css" href="css/critical.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">-->
 </head>
 <body>
+
 <header>
     <div class="wrapper">
         <nav class="navbar-head container-fluid pos-f-t row justify-content-between p-0 m-0 border">
-            <div class="menuBtn col-xl-1 col-lg-1 col-md-1 col-sm-2 col-3">
-                <img src="img/menu.png" width="70" alt="menu logo rostov sakura">
+            <div class="navbar-head__hamburger col-xl-1 col-lg-1 col-md-1 col-sm-2 col-3">
+                <img src="img/menu.png" width="60" alt="logo rostov sakura">
             </div>
-            <div class="logo col-xl-1 col-lg-1 col-md-1 col-sm-2 col-3 d-flex justify-content-center align-items-center">
+            <div class="navbar-head__logo col-xl-1 col-lg-1 col-md-1 col-sm-2 col-3 d-flex justify-content-center align-items-center">
                 <a href="#"><img src="img/logotip.png" width="50" alt="logo rostov sakura"></a>
             </div>
-            <div class="left-menu col-xl-8 col-lg-8 col-md-7 col-sm-7 p-0 m-0">
+            <div class="navbar-head__menu col-xl-8 col-lg-8 col-md-7 col-sm-7 p-0 m-0">
                 <ul>
                     <li><a href="#">Акции</a></li>
                     <li><a href="#">Вакансии</a></li>
                     <li><a href="#">Контакты</a></li>
                 </ul>
             </div>
-            <div class="right-basket justify-content-center border-left p-0 m-0">
+            <div class="navbar-head__basket justify-content-centerp-0 m-0">
                 <img src="img/bag.png" width="30" alt="bag rostov sakura">
                 <p class="ml-2">Пустая корзина</p>
             </div>
         </nav>
     </div>
 </header>
-
 <aside class="containerForm">
     <form class="border">
         <ul>
@@ -41,7 +42,9 @@
             <li class="products"></li>
             <li class="allproducts border-bottom">Всего</li>
             <li class="allsum border-bottom">Общая сумма</li>
-            <li><button class="basketButton">Оформить заказ</button></li>
+            <li>
+                <button class="basketButton">Оформить заказ</button>
+            </li>
         </ul>
     </form>
 </aside>
@@ -54,7 +57,8 @@
     <ul class="sections_list active">
         <li class="border-top"><a href="#"><img src="img/menufood.png"
                                                 alt="menu rostov sakura"><span>Роллы</span></a></li>
-        <li class="border-top"><a href="#"><img src="img/menufood.png" alt="menu rostov sakura"><span>Горячие роллы</span></a>
+        <li class="border-top"><a href="#"><img src="img/menufood.png"
+                                                alt="menu rostov sakura"><span>Горячие роллы</span></a>
         </li>
         <li class="border-top"><a href="#"><img src="img/menufood.png"
                                                 alt="menu rostov sakura"><span>Сеты</span></a></li>
@@ -76,7 +80,8 @@
     <ul class="ingredients_list ">
         <li class="border-top"><a href="#"><img src="img/menufood.png"
                                                 alt="menu rostov sakura"><span>Авакадо</span></a></li>
-        <li class="border-top"><a href="#"><img src="img/menufood.png" alt="menu rostov sakura"><span>Горячие роллы</span></a>
+        <li class="border-top"><a href="#"><img src="img/menufood.png"
+                                                alt="menu rostov sakura"><span>Горячие роллы</span></a>
         </li>
         <li class="border-top"><a href="#"><img src="img/menufood.png"
                                                 alt="menu rostov sakura"><span>Вегетарианские</span></a></li>
@@ -103,7 +108,7 @@
 
 <main>
 
-    <section class="content container-fluid containerMenu d-flex p-0 m-0">
+    <section class="content activeFooter container-fluid containerMenu d-flex p-0 m-0">
         <div class="menuRight container-fluid p-0 m-0">
             <div class="slider">
                 <a href="#" alt="logo menu"><img src="img/logo.jpg"></a>
@@ -111,7 +116,7 @@
         </div>
     </section>
 
-    <div class="footer border-top">
+    <div class="footer activeFooter border-top">
         <div class="footer__info">
             <div class="footer__info__text informationFooter">
                 <div class="logoFoter">
@@ -155,7 +160,14 @@
         </div>
     </div>
 </main>
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!-- styles -->
+<link rel="stylesheet" href="css/main.css" as="style"/>
 
+<!-- scripts -->
+<script type="text/javascript" src="js/main.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -177,8 +189,8 @@
         var $mainLeftIng = $(".ingredients_list");
         var $section_btn = $(".menuLeft .section_btn");
         var $ingredient_btn = $(".menuLeft .ingredient_btn");
-        var $menu_btn = $(".navbar-head .menuBtn img");
-        var $form_btn = $(".navbar-head .right-basket");
+        var $menu_btn = $(".navbar-head__hamburger img");
+        var $form_btn = $(".navbar-head__basket");
 
         var $menuLeft = $(".menuLeft");
         var $form = $(".containerForm");
@@ -187,6 +199,11 @@
 
         $form_btn.on('click', function () {
             $form.toggleClass("showForm");
+            return false;
+        });
+
+        $menu_btn.on('click', function () {
+            $menuLeft.toggleClass("showMenu");
             return false;
         });
 
@@ -202,7 +219,7 @@
             $mainLeftCat.addClass("active");
             $section_btn.addClass("activeBord");
         });
-        if($(window).width() < 799) {
+        if ($(window).width() < 799) {
 
             $ingredient_btn.on('click', function () {
                 $mainLeftCat.removeClass("active");
