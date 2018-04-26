@@ -32,50 +32,86 @@ body {
 header {
     position: relative;
     z-index: 50;
-    .wrapper {
-      justify-content: space-between;
-    }
-    .navbar-head {
-      position: fixed;
-      z-index: 50;
+    .wrapperHead {
       display: flex;
-      width: 100%;
+      flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      background-color: $bg-nav-color;
-      height: 72px;
-      @include mobile-all() {
+      //background-color: blue;
+    }
+      .containerLogo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $bg-nav-color;
+        width: 300px;
+        //height: 600px;
+        @include mobile-all() {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+        }
+        &__hamburger {
+          display: none;
+
+          @include mobile-all() {
+            display:  block !important;
+            max-width: 70px;
+            width: 100%;
+          }
+        }
+        &__logo {
+          box-sizing: border-box;
+          padding: 20px;
+          margin: auto;
+          width: 100%;
+          height: 500px;
+          //background-color: pink;
+          @include mobile-all() {
+            max-width: 70px;
+            width: 100%;
+          }
+          img {
+            width: 100px;
+          }
+        }
+      }
+      .navbar-head {
         position: fixed;
-        justify-content: space-around;
+        left: 300px;
+        top: 0;
         z-index: 50;
-      }
-
-      &__hamburger {
-        display: none;
-
+        display: flex;
+        width: calc(100% - 300px);
+        align-items: center;
+        justify-content: space-between;
+        background-color: $bg-nav-color;
+        height: 85px;
         @include mobile-all() {
-          display:  block !important;
-          max-width: 70px;
-          width: 100%;
+          position: fixed;
+          justify-content: space-around;
+          z-index: 50;
         }
-      }
 
-      &__logo {
-        align-self: center;
-        margin: auto;
-        @include mobile-all() {
-          max-width: 70px;
-          width: 100%;
-        }
-      }
+
       &__menu {
+        margin-left: 0;
+        @include mobile-all() {
+          display: none;
+        }
+
         ul {
           display: flex;
           flex-direction: row;
           justify-content: space-around;
           margin-bottom: 0;
+
           li {
             list-style-type: none;
+
               a {
                 color: #0b0b0b;
                 text-decoration: none;
@@ -87,9 +123,6 @@ header {
               }
           }
         }
-        @include mobile-all() {
-          display:  none;
-        }
       }
       &__basket {
         display: flex;
@@ -97,6 +130,8 @@ header {
         justify-content: center;
         max-width: 200px;
         cursor: pointer;
+        height: 84px;
+        border-left: 1px solid lightgrey;
         @include mobile-all() {
           max-width: 70px;
           width: 100%;
@@ -200,11 +235,11 @@ header {
   flex-direction: column;
   width: 300px;
   background-color: $bg-nav-color;
-  top: 72px;
+  top: 0;
   transition: all 0.5s;
-  //max-height: calc(100vh - #{$header-height}px);
-  //overflow: hidden;
-  //overflow-y: auto;
+  max-height: calc(100vh - #{$header-height}px);
+  overflow: hidden;
+  overflow-y: auto;
   @include mobile-all() {
     position: relative;
     display: block;
@@ -300,6 +335,9 @@ header {
   //border-right: 1px solid #a5a5a5;
   position: relative;
   top: 0;
+  //height: calc(100vh - #{$header-height}px);
+  //overflow: hidden;
+  //overflow-y: auto;
   @include mobile-all() {
     //height: calc(100vh - #{$header-height}px + 282px);
     //overflow: hidden;
@@ -312,6 +350,9 @@ header {
   //border-right: 1px solid #a5a5a5;
   position: absolute;
   top: 63px;
+  height: calc(100vh - #{$header-height}px);
+  overflow: hidden;
+  overflow-y: auto;
   @include mobile-all() {
     width: 100%;
     height: calc(100vh - #{$header-height}px + 63px);
