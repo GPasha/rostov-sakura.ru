@@ -187,9 +187,9 @@ header {
   border-right: 1px solid #a5a5a5;
   top: 68px;
   transition: all 0.5s;
-  //max-height: calc(100vh - #{$header-height}px);
-  //overflow: hidden;
-  //overflow-y: auto;
+  max-height: calc(100vh - #{$header-height}px);
+  overflow: hidden;
+  overflow-y: auto;
   @include mobile-all() {
     z-index: 30;
     width: 100%;
@@ -257,16 +257,25 @@ header {
 .sections_list {
   position: relative;
   top: 0;
-  height: calc(100vh - #{$header-height}px);
-  overflow: hidden;
-  overflow-y: auto;
+  @include mobile-all() {
+    height: calc(100vh - #{$header-height}px);
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+
 }
 
 .ingredients_list {
-  position: relative;
-  height: calc(100vh - #{$header-height}px);
-  overflow: hidden;
-  overflow-y: auto;
+  position: absolute;
+  top: 63px;
+  @include mobile-all() {
+    top: 63px;
+    height: calc(100vh - #{$header-height}px - 63px);
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
   .nameMenu {
     margin-top: 0;
   }

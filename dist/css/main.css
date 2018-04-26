@@ -6384,6 +6384,9 @@ header .navbar-head__basket p {
   border-right: 1px solid #a5a5a5;
   top: 68px;
   transition: all 0.5s;
+  max-height: calc(100vh - 72px);
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 .menuLeft .nameMenu {
@@ -6460,16 +6463,11 @@ header .navbar-head__basket p {
 .sections_list {
   position: relative;
   top: 0;
-  height: calc(100vh - 72px);
-  overflow: hidden;
-  overflow-y: auto;
 }
 
 .ingredients_list {
-  position: relative;
-  height: calc(100vh - 72px);
-  overflow: hidden;
-  overflow-y: auto;
+  position: absolute;
+  top: 63px;
 }
 
 .ingredients_list .nameMenu {
@@ -10212,6 +10210,21 @@ header .navbar-head__basket p {
     /* mobile-all */
     -webkit-transform: translateX(0);
     transform: translateX(0);
+  }
+
+  .sections_list {
+    /* mobile-all */
+    height: calc(100vh - 72px);
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  .ingredients_list {
+    /* mobile-all */
+    top: 63px;
+    height: calc(100vh - 72px - 63px);
+    overflow: hidden;
+    overflow-y: auto;
   }
 
   .footer {
