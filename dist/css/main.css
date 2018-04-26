@@ -6381,12 +6381,8 @@ header .navbar-head__basket p {
   flex-direction: column;
   width: 300px;
   background-color: #fefcff;
-  border-right: 1px solid #a5a5a5;
-  top: 68px;
+  top: 72px;
   transition: all 0.5s;
-  max-height: calc(100vh - 72px);
-  overflow: hidden;
-  overflow-y: auto;
 }
 
 .menuLeft .nameMenu {
@@ -6461,11 +6457,13 @@ header .navbar-head__basket p {
 }
 
 .sections_list {
+  background-color: #fefcff;
   position: relative;
   top: 0;
 }
 
 .ingredients_list {
+  background-color: #fefcff;
   position: absolute;
   top: 63px;
 }
@@ -6599,6 +6597,16 @@ header .navbar-head__basket p {
   width: 100%;
   height: 100vh;
   object-fit: cover;
+}
+
+main .content {
+  position: relative;
+  top: 72px;
+  left: 300px;
+  z-index: 2;
+  margin-left: 300px;
+  width: calc(100vw - 317px);
+  overflow: hidden;
 }
 
 @media (min-width: 576px) {
