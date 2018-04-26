@@ -30,13 +30,14 @@ body {
 }
 
 header {
-  position: fixed;
-  z-index: 50;
+    position: relative;
+    z-index: 50;
     .wrapper {
       justify-content: space-between;
     }
     .navbar-head {
-
+      position: fixed;
+      z-index: 50;
       display: flex;
       width: 100%;
       align-items: center;
@@ -95,6 +96,7 @@ header {
         align-items: center;
         justify-content: center;
         max-width: 200px;
+        cursor: pointer;
         @include mobile-all() {
           max-width: 70px;
           width: 100%;
@@ -182,6 +184,7 @@ header {
 
 .menuLeft {
   position: fixed;
+  z-index: 30;
   display: flex;
   flex-direction: column;
   width: 300px;
@@ -192,14 +195,24 @@ header {
   //overflow: hidden;
   //overflow-y: auto;
   @include mobile-all() {
-    z-index: 30;
+    position: relative;
+    display: block;
     width: 100%;
     border-right: none;
     transform: translateX(-100%);
+    //max-height: calc(100vh - #{$header-height}px);
+    //overflow: hidden;
+    //overflow-y: auto;
   }
   .nameMenu {
     display: flex;
     flex-direction: row;
+    @include mobile-all() {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .ingredient_btn {
       //border-right: 1px solid #a5a5a5;
     }
@@ -230,15 +243,27 @@ header {
     margin: 0;
     padding: 0;
     transition: all 0.3s;
+    @include mobile-all() {
+      align-items: center;
+      justify-content: center;
+    }
     li {
       width: 300px;
       padding: 10px;
       list-style-type: none;
+      @include mobile-all() {
+        display: flex;
+        width: 100%;
+      }
       a {
         color: #0b0b0b;
         text-decoration: none;
         font-weight: 600;
         transition: color 0.3s;
+        @include mobile-all() {
+          margin: auto;
+          width: 250px;
+        }
         &:hover {
           color: darkorange;
         }
@@ -246,6 +271,7 @@ header {
           margin-left: 20px;
         }
       }
+
     }
   }
   .active {
@@ -264,12 +290,10 @@ header {
   position: relative;
   top: 0;
   @include mobile-all() {
-    height: calc(100vh - #{$header-height}px);
+    height: calc(100vh - #{$header-height}px + 282px);
     overflow: hidden;
     overflow-y: auto;
   }
-
-
 }
 
 .ingredients_list {
@@ -278,8 +302,8 @@ header {
   position: absolute;
   top: 63px;
   @include mobile-all() {
-    top: 63px;
-    height: calc(100vh - #{$header-height}px - 63px);
+    width: 100%;
+    height: calc(100vh - #{$header-height}px + 63px);
     overflow: hidden;
     overflow-y: auto;
   }
@@ -448,165 +472,18 @@ main{
   border-left: 1px solid #a5a5a5;
 
   .content {
-    position: relative;
-    top: 72px;
-    left: 300px;
-    z-index: 2;
-    margin-left: 300px;
-    max-width: calc(100vw - 317px);
-    width: 100%;
-    overflow: hidden;
-  }
-}
-
-
-
-
-@media (min-width: 799px) {
-header {
-  .wrapper {
-    .menuBtn {
-      display: none;
-    }
-  }
-}
-}
-
-@media (max-width: 799px) {
-header {
-  .wrapper {
-    .left-menu {
-      display: none;
-    }
-  }
-}
-}
-
-@media (max-width: 799px) {
-.navbar-head {
-  .left-menu {
-    ul {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      li {
-        margin: 12px auto;
+    .menuRight {
+      position: relative;
+      top: 72px;
+      left: 300px;
+      z-index: 2;
+      margin-left: 300px;
+      max-width: calc(100vw - 317px);
+      width: 100%;
+      overflow: hidden;
+      @include mobile-all() {
+        display: none;
       }
     }
   }
-  .right-basket {
-    width: 100px;
-    cursor: pointer;
-    &:hover form {
-      transform: none !important;
-    }
-    p {
-      display: none;
-    }
-  }
 }
-
-.showForm {
-  opacity: 1;
-}
-.openHide {
-  transition: transform 0.4s;
-  transform: translateX(200%);
-  .containerMenu {
-    flex-direction: column;
-  }
-}
-.sections_list {
-  top: 3px;
-}
-
-//.menuLeft {
-//  width: 100%;
-//  position: relative;
-//  display: block;
-//  .nameMenu {
-//    width: 100%;
-//    display: flex;
-//    align-items: center;
-//    justify-content: center;
-//}
-//  ul {
-//    align-items: center;
-//    justify-content: center;
-//    li {
-//      display: flex;
-//      width: 100%;
-//      a {
-//        margin: auto;
-//        width: 250px;
-//      }
-//    }
-//  }
-//  .sections_list {
-//    margin-top: 422px;
-//    position: relative;
-//    height: 0;
-//  }
-//  .ingredients_list {
-//    margin-top: -422px;
-//  }
-//}
-//.menuRightOpenHide {
-//  width: 100%;
-//  position: absolute;
-//}
-//.menuRight {
-//  transition: all 0.4s;
-//  height: 100%;
-//  .slider {
-//    display: none;
-//  }
-//  .footer {
-//    display: flex;
-//    justify-content: center;
-//    align-items: center;
-//    margin-left: 0;
-//    .footerContainer {
-//      .informationFooter, .deliveryFooter {
-//        display: none;
-//      }
-//      .menuFooter {
-//        position: relative;
-//        width: 100%;
-//        height: 100%;
-//        margin: 100px 0;
-//        font-size: 30px;
-//        line-height: 50px;
-//        letter-spacing: 3px;
-//        ul {
-//          li {
-//            display: block;
-//            a {
-//              text-align: center;
-//              border-bottom: 2px solid gray;
-//            }
-//          }
-//        }
-//        p {
-//          display: none;
-//        }
-//      }
-//    }
-//  }
-//}
-//}
-//
-//@media (max-width: 334px) {
-//.navbar-head {
-//  .right-basket {
-//    form {
-//      ul {
-//        .basketButton {
-//          width: 100%;
-//          padding: 0 15px;
-//        }
-//      }
-//    }
-//  }
-//}
-//}
