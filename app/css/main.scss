@@ -115,24 +115,35 @@ header {
 
 
 .containerForm {
-  background-color: $bg-nav-color;
   position: fixed;
+  z-index: 40;
   top: 71px;
   right: 2%;
   opacity: 1;
   transition: all 0.5s ease;
   transform: translateX(110%);
-  min-height: calc(100vh - #{$header-height}px);
-  overflow: hidden;
-  overflow-y: auto;
-
+  //min-height: calc(100vh - #{$header-height}px);
+  //overflow: hidden;
+  //overflow-y: auto;
   @include mobile-all() {
     position: fixed;
-    z-index: 40;
+    background-color: $bg-nav-color;
     right: 0;
     width: 100%;
+    min-height: calc(100vh - #{$header-height}px);
+    overflow: hidden;
+    overflow-y: auto;
     transition: all 0.5s ;
   }
+  &__form {
+    background-color: $bg-nav-color;
+    @include mobile-all() {
+      width: 100%;
+    }
+  }
+
+
+
   form {
     display: block;
     ul {
@@ -183,7 +194,7 @@ header {
 }
 
 .menuLeft {
-  position: fixed;
+  position: relative;
   z-index: 30;
   display: flex;
   flex-direction: column;
@@ -200,9 +211,9 @@ header {
     width: 100%;
     border-right: none;
     transform: translateX(-100%);
-    //max-height: calc(100vh - #{$header-height}px);
-    //overflow: hidden;
-    //overflow-y: auto;
+    max-height: calc(100vh - #{$header-height}px);
+    overflow: hidden;
+    overflow-y: auto;
   }
   .nameMenu {
     display: flex;
@@ -290,9 +301,9 @@ header {
   position: relative;
   top: 0;
   @include mobile-all() {
-    height: calc(100vh - #{$header-height}px + 282px);
-    overflow: hidden;
-    overflow-y: auto;
+    //height: calc(100vh - #{$header-height}px + 282px);
+    //overflow: hidden;
+    //overflow-y: auto;
   }
 }
 
@@ -315,7 +326,6 @@ header {
 
 .footer {
   display: block;
-  margin-left: 300px;
 
   @include mobile-all() {
     margin-left: 0;
@@ -386,9 +396,9 @@ header {
         box-sizing: border-box;
         padding: 30px 20px;
         position: absolute;
-        width: 100%;
+        width: 100vw;
         height: auto;
-        margin: 100px 0;
+        margin: 100px 0 0 -300px;
         font-size: 1.5rem;
         line-height: 50px;
         letter-spacing: 3px;
@@ -457,33 +467,41 @@ header {
 .menuRight {
   display: flex;
   flex-direction: column;
-  .slider {
-    a {
-      img {
-        width: 100%;
-        height: 100vh;
-        object-fit: cover;
-      }
-    }
-  }
+
 }
 
 main{
   border-left: 1px solid #a5a5a5;
-
+  display: flex;
+  flex-direction: column;
+  margin-left: 300px;
+  position: absolute;
+  width: calc(100vw - 317px);
   .content {
     .menuRight {
-      position: relative;
-      top: 72px;
-      left: 300px;
-      z-index: 2;
-      margin-left: 300px;
-      max-width: calc(100vw - 317px);
-      width: 100%;
-      overflow: hidden;
-      @include mobile-all() {
-        display: none;
+      .slider {
+        @include mobile-all() {
+          display: none;
+        }
+        a {
+          img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+          }
+        }
       }
     }
   }
 }
+//position: relative;
+//top: 72px;
+//left: 300px;
+//z-index: 2;
+//margin-left: 300px;
+//max-width: calc(100vw - 317px);
+//width: 100%;
+//          overflow: hidden;
+//@include mobile-all() {
+//  display: none;
+//}

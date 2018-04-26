@@ -6307,17 +6307,18 @@ header .navbar-head__basket p {
 }
 
 .containerForm {
-  background-color: #fefcff;
   position: fixed;
+  z-index: 40;
   top: 71px;
   right: 2%;
   opacity: 1;
   transition: all 0.5s ease;
   -webkit-transform: translateX(110%);
   transform: translateX(110%);
-  min-height: calc(100vh - 72px);
-  overflow: hidden;
-  overflow-y: auto;
+}
+
+.containerForm__form {
+  background-color: #fefcff;
 }
 
 .containerForm form {
@@ -6381,7 +6382,7 @@ header .navbar-head__basket p {
 }
 
 .menuLeft {
-  position: fixed;
+  position: relative;
   z-index: 30;
   display: -ms-flexbox;
   display: flex;
@@ -6482,7 +6483,6 @@ header .navbar-head__basket p {
 
 .footer {
   display: block;
-  margin-left: 300px;
 }
 
 .footer__info {
@@ -6601,25 +6601,21 @@ header .navbar-head__basket p {
   flex-direction: column;
 }
 
-.menuRight .slider a img {
+main {
+  border-left: 1px solid #a5a5a5;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-left: 300px;
+  position: absolute;
+  width: calc(100vw - 317px);
+}
+
+main .content .menuRight .slider a img {
   width: 100%;
   height: 100vh;
   object-fit: cover;
-}
-
-main {
-  border-left: 1px solid #a5a5a5;
-}
-
-main .content .menuRight {
-  position: relative;
-  top: 72px;
-  left: 300px;
-  z-index: 2;
-  margin-left: 300px;
-  max-width: calc(100vw - 317px);
-  width: 100%;
-  overflow: hidden;
 }
 
 @media (min-width: 576px) {
@@ -10100,10 +10096,18 @@ main .content .menuRight {
   .containerForm {
     /* mobile-all */
     position: fixed;
-    z-index: 40;
+    background-color: #fefcff;
     right: 0;
     width: 100%;
+    min-height: calc(100vh - 72px);
+    overflow: hidden;
+    overflow-y: auto;
     transition: all 0.5s;
+  }
+
+  .containerForm__form {
+    /* mobile-all */
+    width: 100%;
   }
 
   .menuLeft {
@@ -10114,6 +10118,9 @@ main .content .menuRight {
     border-right: none;
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
+    max-height: calc(100vh - 72px);
+    overflow: hidden;
+    overflow-y: auto;
   }
 
   .menuLeft .nameMenu {
@@ -10156,9 +10163,6 @@ main .content .menuRight {
 
   .sections_list {
     /* mobile-all */
-    height: calc(100vh - 72px + 282px);
-    overflow: hidden;
-    overflow-y: auto;
   }
 
   .ingredients_list {
@@ -10205,9 +10209,9 @@ main .content .menuRight {
     box-sizing: border-box;
     padding: 30px 20px;
     position: absolute;
-    width: 100%;
+    width: 100vw;
     height: auto;
-    margin: 100px 0;
+    margin: 100px 0 0 -300px;
     font-size: 1.5rem;
     line-height: 50px;
     letter-spacing: 3px;
@@ -10237,7 +10241,7 @@ main .content .menuRight {
     display: none;
   }
 
-  main .content .menuRight {
+  main .content .menuRight .slider {
     /* mobile-all */
     display: none;
   }
