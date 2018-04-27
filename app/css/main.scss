@@ -359,7 +359,7 @@ header {
   //border-right: 1px solid #a5a5a5;
   position: relative;
   top: 0;
-  height: calc(100vh - #{$header-height}px - 85px);
+  height: calc(100vh - #{$header-height}px);
   overflow: hidden;
   overflow-y: auto;
   @include mobile-all() {
