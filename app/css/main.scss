@@ -1,6 +1,7 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "main_mixins";
-
+@import "fonts";
+@import "null";
 
 $bg-nav-color: #fefcff;
 
@@ -16,6 +17,7 @@ body {
   font-size: 14px;
   margin: 0;
   padding: 0;
+  //font-family: 'CenturyGothic', Sans-Serif;
 }
 
 .page-wrapper {
@@ -30,124 +32,143 @@ body {
 }
 
 header {
-    position: relative;
-    z-index: 50;
-    .wrapperHead {
+  position: fixed;
+  z-index: 50;
+    .navbar-head {
+      position: fixed;
+      left: 300px;
+      top: 0;
       display: flex;
-      flex-direction: row;
+      width: calc(100% - 300px);
       align-items: center;
       justify-content: space-between;
-      //background-color: blue;
-    }
-      .containerLogo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: $bg-nav-color;
-        width: 300px;
-        //height: 600px;
-        @include mobile-all() {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-        }
-        &__hamburger {
-          display: none;
+      background-color: $bg-nav-color;
+      height: 85px;
 
-          @include mobile-all() {
-            display:  block !important;
-            max-width: 70px;
-            width: 100%;
-          }
-        }
-        &__logo {
-          box-sizing: border-box;
-          padding: 20px;
-          margin: auto;
-          width: 100%;
-          height: 500px;
-          //background-color: pink;
-          @include mobile-all() {
-            max-width: 70px;
-            width: 100%;
-          }
-          img {
-            width: 100px;
-          }
-        }
+
+      @include mobile-all() {
+        justify-content: space-around;
+        height: 60px;
+        left: 60vw;
+        width: 40vw;
       }
-      .navbar-head {
-        position: fixed;
-        left: 300px;
-        top: 0;
-        z-index: 50;
+    &__menu {
+      margin-left: 0;
+      @media (max-width: 800px) {
+        display: none;
+      }
+
+      ul {
         display: flex;
-        width: calc(100% - 300px);
-        align-items: center;
-        justify-content: space-between;
-        background-color: $bg-nav-color;
-        height: 85px;
-        @include mobile-all() {
-          position: fixed;
-          justify-content: space-around;
-          z-index: 50;
-        }
+        flex-direction: row;
+        justify-content: space-around;
+        margin-bottom: 0;
+        padding-left: 0;
+        li {
+          list-style-type: none;
 
-
-      &__menu {
-        margin-left: 0;
-        @include mobile-all() {
-          display: none;
-        }
-
-        ul {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-around;
-          margin-bottom: 0;
-
-          li {
-            list-style-type: none;
-
-              a {
-                color: #0b0b0b;
-                text-decoration: none;
-                font-weight: 600;
-                transition: color 0.3s;
-                &:hover {
-                  color: darkorange;
-                }
+            a {
+              color: black;
+              text-decoration: none;
+              text-transform: uppercase;
+              font-weight: 600;
+              transition: color 0.3s;
+              &:hover {
+                color: darkorange;
               }
-          }
+            }
         }
       }
-      &__basket {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        max-width: 200px;
-        cursor: pointer;
-        height: 84px;
-        border-left: 1px solid lightgrey;
-        @include mobile-all() {
-          max-width: 70px;
-          width: 100%;
-        }
-        p {
-          margin: 0;
-          @include mobile-all() {
-            display: none;
-          }
-        }
+      @include mobile-all() {
+        display: none;
       }
     }
+    &__basket {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 200px;
+      cursor: pointer;
+      height: 84px;
+      border-left: 1px solid lightgrey;
+      @media (min-width: 576px) and (max-width: 800px) {
+        justify-content: flex-start;
+      }
+      @include mobile-all() {
+        height: 60px;
+        max-width: 100vw;
+      }
+      p {
+        margin: 0;
+        @include mobile-all() {
+          display: none;
+        }
+      }
+      img {
+        @include mobile-all() {
+          width: 30px;
+        }
+      }
+
+    }
+  }
 }
 
 
+.containerLogo {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  height: 170px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-nav-color;
+  width: 300px;
+  //height: 600px;
+  @include mobile-all() {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 60vw;
+  }
+  &__hamburger {
+    display: none;
 
+    @include mobile-all() {
+      display:  block !important;
+      max-width: 30px;
+      //width: 50%;
+    }
+    img {
+      @include mobile-all() {
+        max-width: 50px;
+      }
+    }
+  }
+  &__logo {
+    box-sizing: border-box;
+    padding: 20px;
+    //margin: auto;
+    width: 100%;
+    //height: 500px;
+    //background-color: pink;
+    @include mobile-all() {
+      max-width: 70px;
+      width: 100%;
+    }
+    img {
+      width: 100px;
+      @include mobile-all() {
+        max-width: 50px;
+      }
+    }
+  }
+}
 
 .containerForm {
   position: fixed;
@@ -235,7 +256,7 @@ header {
   flex-direction: column;
   width: 300px;
   background-color: $bg-nav-color;
-  top: 0;
+  top: 170px;
   transition: all 0.5s;
   max-height: calc(100vh - #{$header-height}px);
   overflow: hidden;
@@ -349,7 +370,7 @@ header {
   background-color: $bg-nav-color;
   //border-right: 1px solid #a5a5a5;
   position: absolute;
-  top: 63px;
+  top: 64px;
   height: calc(100vh - #{$header-height}px);
   overflow: hidden;
   overflow-y: auto;
@@ -511,7 +532,7 @@ header {
 
 }
 
-main{
+main {
   border-left: 1px solid #a5a5a5;
   display: flex;
   flex-direction: column;
@@ -535,6 +556,8 @@ main{
     }
   }
 }
+
+
 //position: relative;
 //top: 72px;
 //left: 300px;
