@@ -6541,9 +6541,6 @@ header .navbar-head__basket p {
   background-color: #fefcff;
   position: relative;
   top: 0;
-  height: calc(100vh - 170px);
-  overflow: hidden;
-  overflow-y: auto;
 }
 
 .ingredients_list {
@@ -10178,6 +10175,7 @@ main .content .menuRight .slider a img {
   header .navbar-head__basket img {
     /* mobile-all */
     width: 30px;
+    margin-right: 20px;
   }
 
   .containerLogo {

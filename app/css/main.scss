@@ -108,7 +108,7 @@ header {
       img {
         @include mobile-all() {
           width: 30px;
-
+          margin-right: 20px;
         }
       }
 
@@ -359,9 +359,9 @@ header {
   //border-right: 1px solid #a5a5a5;
   position: relative;
   top: 0;
-  height: calc(100vh - #{$header-height}px);
-  overflow: hidden;
-  overflow-y: auto;
+  //height: calc(100vh - #{$header-height}pxs);
+  //overflow: hidden;
+  //overflow-y: auto;
   @include mobile-all() {
     //height: calc(100vh - #{$header-height}px + 282px);
     //overflow: hidden;
