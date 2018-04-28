@@ -6380,7 +6380,7 @@ header .navbar-head__basket p {
   position: fixed;
   z-index: 50;
   top: 85px;
-  right: 2%;
+  right: 0;
   opacity: 1;
   transition: all 0.5s ease;
   -webkit-transform: translateX(120%);
@@ -6460,20 +6460,18 @@ header .navbar-head__basket p {
 .menuLeft {
   position: fixed;
   top: 170px;
-  z-index: 30;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  z-index: 100;
+  display: block;
   width: 300px;
   background-color: #fefcff;
   transition: all 0.5s;
 }
 
-.menuLeft .nameMenu {
+.menuLeft__nameMenu {
   -ms-flex-direction: row;
   flex-direction: row;
-  position: fixed;
+  position: relative;
+  top: 0;
   z-index: 60;
   display: -ms-flexbox;
   display: flex;
@@ -6481,8 +6479,7 @@ header .navbar-head__basket p {
   background-color: #fefcff;
 }
 
-.menuLeft .nameMenu .section_btn,
-.menuLeft .nameMenu .ingredient_btn {
+.menuLeft__nameMenu__item {
   font-weight: 600;
   width: 150px;
   -ms-flex-pack: center;
@@ -6493,91 +6490,67 @@ header .navbar-head__basket p {
   transition: color 0.4s;
 }
 
-.menuLeft .nameMenu .section_btn:hover,
-.menuLeft .nameMenu .ingredient_btn:hover {
+.menuLeft__nameMenu__item:hover {
   color: darkorange;
 }
 
-.menuLeft .nameMenu .activeBord {
+.menuLeft__nameMenu .activeBord {
   transition: opacity 0.4s;
   opacity: 1;
   border-bottom: 2px solid orange;
 }
 
-.menuLeft ul {
+.menuLeft__sections {
+  position: relative;
+  width: 200%;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
   -webkit-transform: translateX(0);
   transform: translateX(0);
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-align: start;
-  align-items: flex-start;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+}
+
+.menuLeft__sections__menuList {
+  background-color: #fefcff;
+  height: calc(100vh - 170px - 85px);
+  position: relative;
+  overflow: hidden;
+  overflow-y: auto;
+  width: 100%;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   transition: all 0.3s;
 }
 
-.menuLeft ul li {
+.menuLeft__sections__menuList li {
   width: 300px;
   padding: 10px;
   list-style-type: none;
 }
 
-.menuLeft ul li a {
+.menuLeft__sections__menuList li a {
   color: #0b0b0b;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s;
 }
 
-.menuLeft ul li a:hover {
+.menuLeft__sections__menuList li a:hover {
   color: darkorange;
 }
 
-.menuLeft ul li a span {
+.menuLeft__sections__menuList li a span {
   margin-left: 20px;
-}
-
-.sections_lists {
-  position: fixed;
-  top: 255px;
-  display: -ms-flexbox;
-  display: flex;
-  transition: -webkit-transform 0.4s;
-  transition: transform 0.4s;
-  transition: transform 0.4s, -webkit-transform 0.4s;
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
 }
 
 .active {
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
-}
-
-.sections_list {
-  position: relative;
-  left: 0;
-  top: 0;
-  background-color: #fefcff;
-  height: calc(100vh - 170px - 85px);
-  overflow: hidden;
-  overflow-y: auto;
-}
-
-.ingredients_list {
-  background-color: #fefcff;
-  position: relative;
-  transition: all 0.3s;
-  height: calc(100vh - 170px - 85px);
-  overflow: hidden;
-  overflow-y: auto;
-}
-
-.ingredients_list .nameMenu {
-  margin-top: 0;
 }
 
 main {
@@ -10230,6 +10203,7 @@ main .content .menuRight .slider a img {
     /* mobile-all */
     display: block !important;
     max-width: 30px;
+    cursor: pointer;
   }
 
   .containerLogo__hamburger img {
@@ -10284,23 +10258,16 @@ main .content .menuRight .slider a img {
 
   .menuLeft {
     /* mobile-all */
-    position: relative;
-    top: 0;
+    top: 60px;
     z-index: 45;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-    justify-content: center;
     margin: 0 auto;
     width: 100%;
     -webkit-transform: translateX(-200%);
     transform: translateX(-200%);
   }
 
-  .menuLeft .nameMenu {
+  .menuLeft__nameMenu {
     /* mobile-all */
-    position: fixed;
-    top: 60px;
     width: 100%;
     display: -ms-flexbox;
     display: flex;
@@ -10310,37 +10277,36 @@ main .content .menuRight .slider a img {
     justify-content: center;
   }
 
-  .menuLeft .nameMenu .section_btn,
-  .menuLeft .nameMenu .ingredient_btn {
+  .menuLeft__nameMenu__item {
     /* mobile-all */
     padding: 20px 25px;
   }
 
-  .menuLeft ul {
+  .menuLeft__sections {
     /* mobile-all */
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: center;
-    justify-content: center;
   }
 
-  .menuLeft ul li {
+  .menuLeft__sections__menuList {
     /* mobile-all */
-    display: -ms-flexbox;
-    display: flex;
+    height: calc(100vh - 120px);
+    display: inline-block;
+  }
+
+  .menuLeft__sections__menuList li {
+    /* mobile-all */
     width: 100vw;
   }
 
-  .menuLeft ul li a {
+  .menuLeft__sections__menuList li a {
     /* mobile-all */
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: center;
-    justify-content: center;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
     width: 100%;
   }
 
-  .menuLeft ul li a span {
+  .menuLeft__sections__menuList li a span {
     /* mobile-all */
     display: -ms-flexbox;
     display: flex;
@@ -10354,27 +10320,6 @@ main .content .menuRight .slider a img {
     /* mobile-all */
     -webkit-transform: translateX(0);
     transform: translateX(0);
-  }
-
-  .sections_lists {
-    /* mobile-all */
-    top: 120px;
-  }
-
-  .sections_list {
-    /* mobile-all */
-    width: 100%;
-    height: calc(100vh + 120px);
-    overflow: hidden;
-    overflow-y: auto;
-  }
-
-  .ingredients_list {
-    /* mobile-all */
-    width: 100%;
-    height: calc(100vh - 60px);
-    overflow: hidden;
-    overflow-y: auto;
   }
 
   main {

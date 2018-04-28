@@ -43,25 +43,25 @@ body {
 header {
   position: fixed;
   z-index: 50;
-    .navbar-head {
-      position: fixed;
-      left: 300px;
-      top: 0;
-      display: flex;
-      width: calc(100% - 300px);
-      align-items: center;
-      justify-content: space-between;
-      background-color: $bg-nav-color;
-      height: 85px;
-      border-left: 1px solid $border-color;
+  .navbar-head {
+    position: fixed;
+    left: 300px;
+    top: 0;
+    display: flex;
+    width: calc(100% - 300px);
+    align-items: center;
+    justify-content: space-between;
+    background-color: $bg-nav-color;
+    height: 85px;
+    border-left: 1px solid $border-color;
 
-      @include mobile-all() {
-        justify-content: space-around;
-        height: 60px;
-        left: 60vw;
-        width: 40vw;
-        border-left: none;
-      }
+    @include mobile-all() {
+      justify-content: space-around;
+      height: 60px;
+      left: 60vw;
+      width: 40vw;
+      border-left: none;
+    }
     &__menu {
       margin-left: 0;
       @media (max-width: 800px) {
@@ -77,16 +77,16 @@ header {
         li {
           list-style-type: none;
 
-            a {
-              color: black;
-              text-decoration: none;
-              text-transform: uppercase;
-              font-weight: 600;
-              transition: color 0.3s;
-              &:hover {
-                color: darkorange;
-              }
+          a {
+            color: black;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: color 0.3s;
+            &:hover {
+              color: darkorange;
             }
+          }
         }
       }
       @include mobile-all() {
@@ -126,7 +126,6 @@ header {
   }
 }
 
-
 .containerLogo {
   position: fixed;
   z-index: 50;
@@ -152,8 +151,9 @@ header {
     display: none;
 
     @include mobile-all() {
-      display:  block !important;
+      display: block !important;
       max-width: 30px;
+      cursor: pointer;
       //width: 50%;
     }
     img {
@@ -186,7 +186,7 @@ header {
   position: fixed;
   z-index: 50;
   top: 85px;
-  right: 2%;
+  right: 0;
   opacity: 1;
   transition: all 0.5s ease;
   transform: translateX(120%);
@@ -202,7 +202,7 @@ header {
     min-height: calc(100vh - #{$header-height}px);
     overflow: hidden;
     overflow-y: auto;
-    transition: all 0.5s ;
+    transition: all 0.5s;
   }
   &__form {
     background-color: $bg-nav-color;
@@ -210,8 +210,6 @@ header {
       width: 100%;
     }
   }
-
-
 
   form {
     display: block;
@@ -242,7 +240,7 @@ header {
           //min-height: calc(100vh - #{$header-height-mob}px);
           //overflow: hidden;
           //overflow-y: auto;
-          transition: all 0.5s ;
+          transition: all 0.5s;
         }
         &:last-child {
           padding: 13px 60px;
@@ -280,53 +278,45 @@ header {
     }
   }
 }
+
 .showForm {
   transform: translateX(0);
 }
 
 .menuLeft {
   position: fixed;
-  top: 170px;
-  z-index: 30;
-  display: flex;
-  flex-direction: column;
+  top: #{$header-height}px;
+  z-index: 100;
+  display: block;
   width: 300px;
   background-color: $bg-nav-color;
   transition: all 0.5s;
+
   @include mobile-all() {
-    position: relative;
-    top: 0;
+    top: #{$header-height-mob}px;
     z-index: 45;
-    display: flex;
-    justify-content: center;
     margin: 0 auto;
     width: 100%;
     transform: translateX(-200%);
-    //border-right: none;
-    //transform: translateX(-100%);
-    //max-height: calc(100vh - #{$header-height-mob}px);
-    //overflow: hidden;
-    //overflow-y: auto;
   }
-  .nameMenu {
+
+  &__nameMenu {
     flex-direction: row;
-    position: fixed;
+    position: relative;
+    top: 0;
     z-index: 60;
     display: flex;
     border-bottom: 1px solid $border-color;
     background-color: $bg-nav-color;
+
     @include mobile-all() {
-      position: fixed;
-      top: 60px;
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .ingredient_btn {
-      //border-right: 1px solid $border-color;
-    }
-    .section_btn, .ingredient_btn {
+
+    &__item {
       font-weight: 600;
       width: 150px;
       justify-content: center;
@@ -341,116 +331,137 @@ header {
         color: darkorange;
       }
     }
+
     .activeBord {
       transition: opacity 0.4s;
       opacity: 1;
       border-bottom: 2px solid $border-bottom-orange;
     }
   }
-  ul {
+
+  &__sections {
+    position: relative;
+    width: 200%;
+    transition: transform 0.4s;
     transform: translateX(0);
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    transition: all 0.3s;
+    flex-flow: row nowrap;
     @include mobile-all() {
-      align-items: center;
-      justify-content: center;
     }
-    li {
-      width: 300px;
-      padding: 10px;
-      list-style-type: none;
+
+    &__menuList {
+      background-color: $bg-nav-color;
+      height: calc(100vh - #{$header-height}px - #{$menuLeft-height}px);
+      position: relative;
+      overflow: hidden;
+      overflow-y: auto;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: all 0.3s;
+
       @include mobile-all() {
-        display: flex;
-        width: 100vw;
+        height: calc(100vh - #{$header-height-mob + $menuLeft-height-mob}px);
+        display: inline-block;
       }
-      a {
-        color: #0b0b0b;
-        text-decoration: none;
-        font-weight: 600;
-        transition: color 0.3s;
+
+      li {
+        width: 300px;
+        padding: 10px;
+        list-style-type: none;
+
         @include mobile-all() {
-          display: flex;
-          justify-content: center;
-          width: 100%;
+          width: 100vw;
         }
-        &:hover {
-          color: darkorange;
-        }
-        span {
-          margin-left: 20px;
+
+        a {
+          color: #0b0b0b;
+          text-decoration: none;
+          font-weight: 600;
+          transition: color 0.3s;
+
           @include mobile-all() {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            //margin-left: 40px;
+            justify-content: flex-start;
+            width: 100%;
           }
+
+          &:hover {
+            color: darkorange;
+          }
+
+          span {
+            margin-left: 20px;
+
+            @include mobile-all() {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              //margin-left: 40px;
+            }
+
+          }
+
         }
+
       }
 
     }
   }
+
 }
+
 .showMenu {
   @include mobile-all() {
     transform: translateX(0);
   }
 }
-.sections_lists {
-  position: fixed;
-  top: 255px;
-  display: flex;
-  transition: transform 0.4s;
-  transform: translateX(0);
-  @include mobile-all() {
-    top: 120px;
-  }
-}
+
+
+
 .active {
   transform: translateX(-50%);
 }
-.sections_list {
-  position: relative;
-  left: 0;
-  top: 0;
-  background-color: $bg-nav-color;
-  height: calc(100vh - #{$header-height}px - #{$menuLeft-height}px);
-  overflow: hidden;
-  overflow-y: auto;
-  @include mobile-all() {
-    //position: relative;
-    //top: 120px;
-    width: 100%;
-    height: calc(100vh + 120px);
-    overflow: hidden;
-    overflow-y: auto;
-  }
-}
 
-.ingredients_list {
-  background-color: $bg-nav-color;
-  //border-right: 1px solid #a5a5a5;
-  position: relative;
-  transition:  all 0.3s;
-  height: calc(100vh - #{$header-height}px - #{$menuLeft-height}px);
-  overflow: hidden;
-  overflow-y: auto;
-  @include mobile-all() {
-    //position: fixed;
-    width: 100%;
-    height: calc(100vh - #{$menuLeft-height-mob}px);
-    overflow: hidden;
-    overflow-y: auto;
-  }
+//.sections_list {
+//  left: 0;
+//  top: 0;
+//  height: calc(100vh - #{$header-height}px - #{$menuLeft-height}px);
+//  overflow: hidden;
+//  overflow-y: auto;
+//  float: left;
+//  @include mobile-all() {
+//    //position: relative;
+//    //top: 120px;
+//    height: calc(100vh - #{$header-height-mob + $menuLeft-height-mob}px);
+//    overflow: hidden;
+//    overflow-y: auto;
+//  }
+//}
 
-  .nameMenu {
-    margin-top: 0;
-  }
-}
+//.ingredients_list {
+//  background-color: $bg-nav-color;
+//  //border-right: 1px solid #a5a5a5;
+//  position: relative;
+//  transition:  all 0.3s;
+//  height: calc(100vh - #{$header-height}px - #{$menuLeft-height}px);
+//  overflow: hidden;
+//  overflow-y: auto;
+//  @include mobile-all() {
+//    //position: fixed;
+//    width: 100%;
+//    height: calc(100vh - #{$menuLeft-height-mob}px);
+//    overflow: hidden;
+//    overflow-y: auto;
+//  }
+//
+//.nameMenu {
+//  margin-top: 0;
+//}
+//
+//}
+
 main {
   position: absolute;
   z-index: 40;
@@ -479,6 +490,7 @@ main {
     }
   }
 }
+
 .footer {
   display: block;
   background-color: $bg-nav-color;
@@ -519,9 +531,9 @@ main {
           margin-bottom: 20px;
         }
       }
-        @include mobile-all() {
-          display:  none !important;
-        }
+      @include mobile-all() {
+        display: none !important;
+      }
     }
     &__menu {
       margin: 10px 10px;
@@ -605,7 +617,7 @@ main {
         }
       }
       @include mobile-all() {
-        display:  none !important;
+        display: none !important;
       }
     }
   }
@@ -624,16 +636,11 @@ main {
   }
 }
 
-
-
 .menuRight {
   display: flex;
   flex-direction: column;
 
 }
-
-
-
 
 //position: relative;
 //top: 72px;

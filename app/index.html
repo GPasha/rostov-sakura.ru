@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rostov-sakura</title>
-    <link rel="stylesheet" type="text/css" href="css/critical.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/critical.css">-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">-->
@@ -51,12 +51,12 @@
 </aside>
 
 <aside class="menuLeft categories menuLeft_active p-0 m-0 border-right">
-    <div class="nameMenu border-top">
-        <div class="section_btn activeBord">Категории</div>
-        <div class="ingredient_btn">Ингредиенты</div>
+    <div class="menuLeft__nameMenu border-top">
+        <div class="menuLeft__nameMenu__item activeBord" data-id="menuSection-1">Категории</div>
+        <div class="menuLeft__nameMenu__item" data-id="menuSection-2">Ингредиенты</div>
     </div>
-    <div class="sections_lists">
-        <ul class="sections_list">
+    <div class="menuLeft__sections">
+        <ul id="menuSection-1" class="menuLeft__sections__menuList">
             <li class="border-bottom"><a href="#"><img src="img/menufood.png"
                                                     alt="menu rostov sakura"><span>Роллы</span></a></li>
             <li class="border-bottom"><a href="#"><img src="img/menufood.png"
@@ -79,7 +79,7 @@
             <li class="border-bottom"><a href="#"><img src="img/menufood.png"
                                                                   alt="menu rostov sakura"><span>Напитки</span></a></li>
         </ul>
-        <ul class="ingredients_list">
+        <ul id="menuSection-2" class="menuLeft__sections__menuList">
             <li class="border-bottom"><a href="#"><img src="img/menufood.png"
                                                     alt="menu rostov sakura"><span>Авакадо</span></a></li>
             <li class="border-bottom"><a href="#"><img src="img/menufood.png"
@@ -123,7 +123,7 @@
         <div class="footer__info">
             <div class="footer__info__text informationFooter">
                 <div class="footer__info__text__img">
-                    <img src="img/logo.svg" width="30px" alt="logo rostov sakura">
+                    <a href="#"> <img src="img/logo.svg" width="30px" alt="logo rostov sakura"></a>
                 </div>
                 <div class="footer__info__text__orders">
                     <p>Онлайн сервис заказа суши<br>и других блюд в Ростове.</p>
@@ -180,6 +180,22 @@
 <script>
     $(window).on('load', function () {
 
+//        $('.menuLeft__nameMenu__item').on('click', function () {
+//           var $activeMenu = $('#' + $(this).data('id'));
+//           if ($activeMenu.length > 0 && !$activeMenu.hasClass('active')) {
+//               var dX = parseInt($activeMenu.offset().left);
+//               var rX = parseInt($('.menuLeft__sections').offset().left);
+//
+//               $('.menuLeft__sections').css('transform', 'translateX(-' + dX + 'px)');
+//
+//               $activeMenu.parent().find('.active').removeClass('active');
+//
+//               $activeMenu.addClass('active');
+//
+//               console.log('$activeMenu', $activeMenu.offset().left);
+//           }
+//        });
+
         var $mainLeft = $(".sections_lists");
 //        var $mainLeftCat = $(".sections_list");
 //        var $mainLeftIng = $(".ingredients_list");
@@ -231,9 +247,9 @@
                 $section_btn.addClass("activeBord");
                 $ingredient_btn.removeClass("activeBord");
             });
-            $menu_btn.on('click', function () {
-                $menuFooter.toggleClass("showForm");
-            });
+//            $menu_btn.on('click', function () {
+//                $menuFooter.toggleClass("showForm");
+//            });
 
         }
     });
