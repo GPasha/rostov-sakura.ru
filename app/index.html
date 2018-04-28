@@ -212,8 +212,6 @@
             $mainLeft.removeClass("active");
             $section_btn.addClass("activeBord");
             $ingredient_btn.removeClass("activeBord");
-
-
         });
         $section_btn.on('click', function () {
             $mainLeftIng.removeClass("active");
@@ -224,20 +222,18 @@
         if ($(window).width() < 799) {
 
             $ingredient_btn.on('click', function () {
-                $mainLeftCat.removeClass("active");
+                $mainLeft.addClass("active");
                 $section_btn.removeClass("activeBord");
-                $mainLeftIng.addClass("active");
                 $ingredient_btn.addClass("activeBord");
             });
             $section_btn.on('click', function () {
-                $mainLeftIng.removeClass("active");
-                $ingredient_btn.removeClass("activeBord");
-                $mainLeftCat.addClass("active");
+                $mainLeft.removeClass("active");
                 $section_btn.addClass("activeBord");
+                $ingredient_btn.removeClass("activeBord");
             });
-//            $menu_btn.on('click', function () {
-//                $menuFooter.toggleClass("showForm");
-//            });
+            $menu_btn.on('click', function () {
+                $menuFooter.toggleClass("showForm");
+            });
 
         }
     });

@@ -6378,7 +6378,7 @@ header .navbar-head__basket p {
 
 .containerForm {
   position: fixed;
-  z-index: 40;
+  z-index: 50;
   top: 85px;
   right: 2%;
   opacity: 1;
@@ -6467,16 +6467,18 @@ header .navbar-head__basket p {
   flex-direction: column;
   width: 300px;
   background-color: #fefcff;
+  -webkit-transform: translateX(-200%);
+  transform: translateX(-200%);
   transition: all 0.5s;
 }
 
 .menuLeft .nameMenu {
-  display: -ms-flexbox;
-  display: flex;
   -ms-flex-direction: row;
   flex-direction: row;
   position: fixed;
   z-index: 60;
+  display: -ms-flexbox;
+  display: flex;
   border-bottom: 1px solid lightgrey;
   background-color: #fefcff;
 }
@@ -6541,10 +6543,10 @@ header .navbar-head__basket p {
 }
 
 .sections_lists {
-  display: -ms-flexbox;
-  display: flex;
   position: fixed;
   top: 255px;
+  display: -ms-flexbox;
+  display: flex;
   transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
   transition: transform 0.4s, -webkit-transform 0.4s;
@@ -6580,8 +6582,27 @@ header .navbar-head__basket p {
   margin-top: 0;
 }
 
+main {
+  position: absolute;
+  z-index: 40;
+  border-left: 1px solid #a5a5a5;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-left: 300px;
+  width: calc(100vw - 317px);
+}
+
+main .content .menuRight .slider a img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
 .footer {
   display: block;
+  background-color: #fefcff;
 }
 
 .footer__info {
@@ -6708,24 +6729,6 @@ header .navbar-head__basket p {
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
-}
-
-main {
-  position: absolute;
-  z-index: 40;
-  border-left: 1px solid #a5a5a5;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  margin-left: 300px;
-  width: calc(100vw - 317px);
-}
-
-main .content .menuRight .slider a img {
-  width: 100%;
-  height: 100vh;
-  object-fit: cover;
 }
 
 @media (min-width: 576px) {
@@ -10172,6 +10175,12 @@ main .content .menuRight .slider a img {
 }
 
 @media (max-width: 768px) and (max-height: 576px) and (orientation: landscape), (max-width: 576px) and (max-height: 768px) and (orientation: portrait) {
+  body {
+    /* mobile-all */
+    max-height: 100vh;
+    overflow: hidden;
+  }
+
   header .navbar-head {
     /* mobile-all */
     -ms-flex-pack: distribute;
@@ -10278,19 +10287,20 @@ main .content .menuRight .slider a img {
   .menuLeft {
     /* mobile-all */
     position: relative;
-    top: 60px;
-    display: block;
+    top: 0;
+    z-index: 45;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0 auto;
     width: 100%;
-    border-right: none;
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-    max-height: calc(100vh - 60px);
-    overflow: hidden;
-    overflow-y: auto;
   }
 
   .menuLeft .nameMenu {
     /* mobile-all */
+    position: fixed;
+    top: 60px;
     width: 100%;
     display: -ms-flexbox;
     display: flex;
@@ -10298,6 +10308,12 @@ main .content .menuRight .slider a img {
     align-items: center;
     -ms-flex-pack: center;
     justify-content: center;
+  }
+
+  .menuLeft .nameMenu .section_btn,
+  .menuLeft .nameMenu .ingredient_btn {
+    /* mobile-all */
+    padding: 20px 25px;
   }
 
   .menuLeft ul {
@@ -10312,18 +10328,43 @@ main .content .menuRight .slider a img {
     /* mobile-all */
     display: -ms-flexbox;
     display: flex;
-    width: 100%;
+    width: 100vw;
   }
 
   .menuLeft ul li a {
     /* mobile-all */
-    margin: auto;
-    width: 250px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .menuLeft ul li a span {
+    /* mobile-all */
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  .showMenu {
+    /* mobile-all */
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+
+  .sections_lists {
+    /* mobile-all */
+    top: 120px;
   }
 
   .sections_list {
     /* mobile-all */
-    height: calc(100vh - 170px + 282px);
+    width: 100%;
+    height: calc(100vh + 120px);
     overflow: hidden;
     overflow-y: auto;
   }
@@ -10331,9 +10372,19 @@ main .content .menuRight .slider a img {
   .ingredients_list {
     /* mobile-all */
     width: 100%;
-    height: calc(100vh - 170px + 63px);
+    height: calc(100vh - 60px);
     overflow: hidden;
     overflow-y: auto;
+  }
+
+  main {
+    /* mobile-all */
+    z-index: 25;
+  }
+
+  main .content .menuRight .slider {
+    /* mobile-all */
+    display: none;
   }
 
   .footer {
@@ -10400,11 +10451,6 @@ main .content .menuRight .slider a img {
   }
 
   .footer__copyright {
-    /* mobile-all */
-    display: none;
-  }
-
-  main .content .menuRight .slider {
     /* mobile-all */
     display: none;
   }
