@@ -6467,8 +6467,6 @@ header .navbar-head__basket p {
   flex-direction: column;
   width: 300px;
   background-color: #fefcff;
-  -webkit-transform: translateX(-200%);
-  transform: translateX(-200%);
   transition: all 0.5s;
 }
 
@@ -10295,6 +10293,8 @@ main .content .menuRight .slider a img {
     justify-content: center;
     margin: 0 auto;
     width: 100%;
+    -webkit-transform: translateX(-200%);
+    transform: translateX(-200%);
   }
 
   .menuLeft .nameMenu {
@@ -10335,8 +10335,8 @@ main .content .menuRight .slider a img {
     /* mobile-all */
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
+    -ms-flex-pack: center;
+    justify-content: center;
     width: 100%;
   }
 

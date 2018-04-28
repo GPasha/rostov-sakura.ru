@@ -292,7 +292,6 @@ header {
   flex-direction: column;
   width: 300px;
   background-color: $bg-nav-color;
-  transform: translateX(-200%);
   transition: all 0.5s;
   @include mobile-all() {
     position: relative;
@@ -302,6 +301,7 @@ header {
     justify-content: center;
     margin: 0 auto;
     width: 100%;
+    transform: translateX(-200%);
     //border-right: none;
     //transform: translateX(-100%);
     //max-height: calc(100vh - #{$header-height-mob}px);
@@ -366,10 +366,7 @@ header {
       list-style-type: none;
       @include mobile-all() {
         display: flex;
-
         width: 100vw;
-
-
       }
       a {
         color: #0b0b0b;
@@ -378,7 +375,7 @@ header {
         transition: color 0.3s;
         @include mobile-all() {
           display: flex;
-          justify-content: space-around;
+          justify-content: center;
           width: 100%;
         }
         &:hover {
