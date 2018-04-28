@@ -6475,6 +6475,10 @@ header .navbar-head__basket p {
   display: flex;
   -ms-flex-direction: row;
   flex-direction: row;
+  position: fixed;
+  z-index: 60;
+  border-bottom: 1px solid lightgrey;
+  background-color: #fefcff;
 }
 
 .menuLeft .nameMenu .section_btn,
@@ -6536,26 +6540,28 @@ header .navbar-head__basket p {
   margin-left: 20px;
 }
 
-.menuLeft .active {
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
-}
-
-.menuLeft .active2 {
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-}
-
 .sections_lists {
   display: -ms-flexbox;
   display: flex;
+  position: fixed;
+  top: 255px;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
   -webkit-transform: translateX(0);
   transform: translateX(0);
 }
 
+.active {
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
 .sections_list {
-  background-color: #fefcff;
   position: relative;
+  left: 0;
+  top: 0;
+  background-color: #fefcff;
   height: calc(100vh - 170px - 85px);
   overflow: hidden;
   overflow-y: auto;
@@ -6565,8 +6571,6 @@ header .navbar-head__basket p {
   background-color: #fefcff;
   position: relative;
   transition: all 0.3s;
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
   height: calc(100vh - 170px - 85px);
   overflow: hidden;
   overflow-y: auto;
@@ -6692,6 +6696,7 @@ header .navbar-head__basket p {
   display: flex;
   width: 100%;
   height: 5%;
+  background-color: #fefcff;
 }
 
 .footer__copyright div {
@@ -6706,13 +6711,14 @@ header .navbar-head__basket p {
 }
 
 main {
+  position: absolute;
+  z-index: 40;
   border-left: 1px solid #a5a5a5;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
   margin-left: 300px;
-  position: absolute;
   width: calc(100vw - 317px);
 }
 
@@ -10372,7 +10378,7 @@ main .content .menuRight .slider a img {
     font-size: 1.5rem;
     line-height: 50px;
     letter-spacing: 3px;
-    background-color: white;
+    background-color: #fefcff;
   }
 
   .footer__info__menu ul li {
@@ -10381,7 +10387,7 @@ main .content .menuRight .slider a img {
 
   .footer__info__menu ul li a {
     text-align: center;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid lightgrey;
   }
 
   .footer__info__menu p {

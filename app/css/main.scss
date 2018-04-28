@@ -4,6 +4,8 @@
 @import "null";
 
 $bg-nav-color: #fefcff;
+$border-color: lightgrey;
+$border-bottom-orange: orange;
 
 $header-height: 170;
 $header-height-mob: 60;
@@ -46,7 +48,7 @@ header {
       justify-content: space-between;
       background-color: $bg-nav-color;
       height: 85px;
-      border-left: 1px solid lightgrey;
+      border-left: 1px solid $border-color;
 
       @include mobile-all() {
         justify-content: space-around;
@@ -93,7 +95,7 @@ header {
       max-width: 200px;
       cursor: pointer;
       height: 84px;
-      border-left: 1px solid lightgrey;
+      border-left: 1px solid $border-color;
       @media (min-width: 576px) and (max-width: 800px) {
         justify-content: flex-start;
       }
@@ -303,7 +305,10 @@ header {
   .nameMenu {
     display: flex;
     flex-direction: row;
-
+    position: fixed;
+    z-index: 60;
+    border-bottom: 1px solid $border-color;
+    background-color: $bg-nav-color;
     @include mobile-all() {
       width: 100%;
       display: flex;
@@ -311,7 +316,7 @@ header {
       justify-content: center;
     }
     .ingredient_btn {
-      //border-right: 1px solid #a5a5a5;
+      //border-right: 1px solid $border-color;
     }
     .section_btn, .ingredient_btn {
       font-weight: 600;
@@ -328,7 +333,7 @@ header {
     .activeBord {
       transition: opacity 0.4s;
       opacity: 1;
-      border-bottom: 2px solid orange;
+      border-bottom: 2px solid $border-bottom-orange;
     }
   }
   ul {
@@ -371,13 +376,6 @@ header {
 
     }
   }
-  .active {
-    transform: translateX(-100%);
-    }
-  .active2 {
-    transform: translateX(0);
-  }
-
 }
 //.showMenu {
 //  @include mobile-all() {
@@ -386,14 +384,22 @@ header {
 //}
 .sections_lists {
   display: flex;
+  position: fixed;
+  top: 255px;
+  transition: transform 0.4s;
   transform: translateX(0);
 }
-
+.active {
+  transform: translateX(-50%);
+}
 .sections_list {
+  position: relative;
+  left: 0;
+  top: 0;
   background-color: $bg-nav-color;
   //border-right: 1px solid #a5a5a5;
-  position: relative;
   //transform: translateX(-100%);
+  //width: 600px;
   height: calc(100vh - #{$header-height}px - #{$menuLeft-height}px);
   overflow: hidden;
   overflow-y: auto;
@@ -409,7 +415,6 @@ header {
   //border-right: 1px solid #a5a5a5;
   position: relative;
   transition:  all 0.3s;
-  transform: translateX(0);
   height: calc(100vh - #{$header-height}px - #{$menuLeft-height}px);
   overflow: hidden;
   overflow-y: auto;
@@ -509,13 +514,13 @@ header {
         font-size: 1.5rem;
         line-height: 50px;
         letter-spacing: 3px;
-        background-color: white;
+        background-color: $bg-nav-color;
         ul {
           li {
             display: block;
             a {
               text-align: center;
-              border-bottom: 2px solid gray;
+              border-bottom: 2px solid $border-color;
             }
           }
         }
@@ -559,6 +564,7 @@ header {
     display: flex;
     width: 100%;
     height: 5%;
+    background-color: $bg-nav-color;
     @include mobile-all() {
       display: none;
     }
@@ -578,11 +584,12 @@ header {
 }
 
 main {
+  position: absolute;
+  z-index: 40;
   border-left: 1px solid #a5a5a5;
   display: flex;
   flex-direction: column;
   margin-left: 300px;
-  position: absolute;
   width: calc(100vw - 317px);
   .content {
     .menuRight {
