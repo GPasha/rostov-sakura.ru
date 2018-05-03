@@ -6391,13 +6391,44 @@ header .navbar-head__basket p {
   background-color: #fefcff;
 }
 
+.containerForm__form__products {
+  display: none;
+}
+
+.containerForm__form__allproducts {
+  background-color: #bdbdbd;
+}
+
+.containerForm__form__myBasket {
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.containerForm__form__myBasket:hover {
+  color: darkorange;
+}
+
+.containerForm__form__order__basketButton {
+  cursor: pointer;
+  background-color: orange;
+  border: none;
+  box-sizing: border-box;
+  margin: auto 0;
+  padding: 10px 20px;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.containerForm__form__order__basketButton:hover {
+  background-color: darkorange;
+}
+
 .containerForm form {
   display: block;
 }
 
 .containerForm form ul {
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 0;
@@ -6420,38 +6451,6 @@ header .navbar-head__basket p {
   padding: 13px 60px;
 }
 
-.containerForm form ul .products {
-  display: none;
-}
-
-.containerForm form ul .allproducts {
-  background-color: #bdbdbd;
-}
-
-.containerForm form ul .myBasket {
-  transition: color 0.3s;
-  cursor: pointer;
-}
-
-.containerForm form ul .myBasket:hover {
-  color: darkorange;
-}
-
-.containerForm form ul .basketButton {
-  cursor: pointer;
-  background-color: orange;
-  border: none;
-  box-sizing: border-box;
-  margin: auto 0;
-  padding: 10px 20px;
-  color: white;
-  transition: background-color 0.3s;
-}
-
-.containerForm form ul .basketButton:hover {
-  background-color: darkorange;
-}
-
 .showForm {
   -webkit-transform: translateX(0);
   transform: translateX(0);
@@ -6460,7 +6459,7 @@ header .navbar-head__basket p {
 .menuLeft {
   position: fixed;
   top: 170px;
-  z-index: 100;
+  z-index: 30;
   display: block;
   width: 300px;
   background-color: #fefcff;
@@ -10196,7 +10195,7 @@ main .content .menuRight .slider a img {
     align-items: center;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    width: 60vw;
+    width: calc(50vw + 35px);
   }
 
   .containerLogo__hamburger {
@@ -10224,12 +10223,10 @@ main .content .menuRight .slider a img {
 
   .containerForm {
     /* mobile-all */
-    position: fixed;
     top: 60px;
     background-color: #fefcff;
-    right: 0;
-    width: 100%;
-    min-height: calc(100vh - 170px);
+    width: 100vw;
+    height: calc(100vh - 60px);
     overflow: hidden;
     overflow-y: auto;
     transition: all 0.5s;
@@ -10237,23 +10234,32 @@ main .content .menuRight .slider a img {
 
   .containerForm__form {
     /* mobile-all */
+    min-height: calc(100vh);
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  .containerForm__form__order__basketButton {
+    /* mobile-all */
+    padding: 0 10px;
     width: 100%;
+  }
+
+  .containerForm form ul {
+    /* mobile-all */
+    position: relative;
+    min-height: calc(100vh - 60px);
+    overflow: hidden;
+    overflow-y: auto;
   }
 
   .containerForm form ul li {
     /* mobile-all */
     position: relative;
-    top: 0;
     background-color: #fefcff;
-    right: 0;
     max-width: 100vw;
     width: 100%;
     transition: all 0.5s;
-  }
-
-  .containerForm form ul .basketButton {
-    /* mobile-all */
-    padding: 0 10px;
   }
 
   .menuLeft {
@@ -10367,14 +10373,16 @@ main .content .menuRight .slider a img {
     align-items: center;
     box-sizing: border-box;
     padding: 30px 20px;
-    position: absolute;
+    position: relative;
     width: 100vw;
-    height: auto;
-    margin: 100px 0 0 -300px;
+    margin: 100px 0 0 -280px;
     font-size: 1.5rem;
     line-height: 50px;
     letter-spacing: 3px;
     background-color: #fefcff;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+    overflow-y: auto;
   }
 
   .footer__info__menu ul li {

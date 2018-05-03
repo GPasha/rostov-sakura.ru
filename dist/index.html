@@ -12,15 +12,15 @@
 <body>
 
 <header>
-        <nav class="navbar-head pos-f-t row justify-content-between p-0 m-0">
+        <nav class="navbar-head pos-f-t row justify-content-xl-between justify-content-lg-between justify-content-md-end justify-content-sm-end justify-content-end p-0 m-0">
             <div class="navbar-head__menu col-xl-7 col-lg-8 col-md-7 col-sm-7 p-0 m-0">
                 <ul>
                     <li><a href="#">Акции</a></li>
                     <li><a href="#">Вакансии</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <li><a class="pr-md-5" href="#">Контакты</a></li>
                 </ul>
             </div>
-            <div class="navbar-head__basket container-fluid justify-content-center p-0 m-0">
+            <div class="navbar-head__basket container-fluid justify-content-xl-center justify-content-lg-center justify-content-md-center justify-content-sm-end justify-content-end p-0 m-0">
                 <img src="img/cart.svg" width="30" alt="bag rostov sakura">
                 <p class="ml-3">Пустая корзина</p>
             </div>
@@ -38,13 +38,13 @@
 <aside class="containerForm">
     <form class="containerForm__form border">
         <ul>
-            <li class="basket border-bottom">Корзина заказа</li>
-            <li class="myBasket border-bottom">Моя корзина</li>
-            <li class="products"></li>
-            <li class="allproducts border-bottom">Всего</li>
-            <li class="allsum border-bottom">Общая сумма</li>
-            <li>
-                <button class="basketButton">Оформить заказ</button>
+            <li class="containerForm__form__basket border-bottom">Корзина заказа</li>
+            <li class="containerForm__form__myBasket border-bottom">Моя корзина</li>
+            <li class="containerForm__form__products"></li>
+            <li class="containerForm__form__allproducts border-bottom">Всего</li>
+            <li class="containerForm__form__allsum border-bottom">Общая сумма</li>
+            <li class="containerForm__form__order border-bottom d-flex justify-content-center align-items-center">
+                <button class="containerForm__form__order__basketButton">Оформить заказ</button>
             </li>
         </ul>
     </form>
@@ -52,8 +52,8 @@
 
 <aside class="menuLeft categories menuLeft_active p-0 m-0 border-right">
     <div class="menuLeft__nameMenu border-top">
-        <div class="menuLeft__nameMenu__item activeBord" data-id="menuSection-1">Категории</div>
-        <div class="menuLeft__nameMenu__item" data-id="menuSection-2">Ингредиенты</div>
+        <div class="menuLeft__nameMenu__item activeBord menuSection-1" data-id="menuSection-1">Категории</div>
+        <div class="menuLeft__nameMenu__item menuSection-2" data-id="menuSection-2">Ингредиенты</div>
     </div>
     <div class="menuLeft__sections">
         <ul id="menuSection-1" class="menuLeft__sections__menuList">
@@ -196,11 +196,11 @@
 //           }
 //        });
 
-        var $mainLeft = $(".sections_lists");
-//        var $mainLeftCat = $(".sections_list");
-//        var $mainLeftIng = $(".ingredients_list");
-        var $section_btn = $(".menuLeft .section_btn");
-        var $ingredient_btn = $(".menuLeft .ingredient_btn");
+        var $mainLeft = $(".menuLeft__sections");
+        var $mainLeftCat = $(".sections_list");
+        var $mainLeftIng = $(".ingredients_list");
+//        var $section_btn = $(".menuLeft .section_btn");
+//        var $ingredient_btn = $(".menuLeft .ingredient_btn");
         var $menu_btn = $(".containerLogo__hamburger img");
         var $form_btn = $(".navbar-head__basket");
 
@@ -208,6 +208,11 @@
         var $form = $(".containerForm");
         var $menuFooter = $(".menuRight .footer .menuFooter");
         var $menuRight = $(".menuRight");
+
+
+        var $section_btn = $(".menuSection-1");
+        var $ingredient_btn = $(".menuSection-2");
+
 
         $form_btn.on('click', function () {
             $form.toggleClass("showForm");

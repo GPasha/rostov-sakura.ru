@@ -8,6 +8,7 @@ $border-color: lightgrey;
 $border-bottom-orange: orange;
 
 $header-height: 170;
+$header-form-height: 85;
 $header-height-mob: 60;
 $menuLeft-height: 85;
 $menuLeft-height-mob: 60;
@@ -145,7 +146,7 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 60vw;
+    width: calc(50vw + 35px);
   }
   &__hamburger {
     display: none;
@@ -185,7 +186,7 @@ header {
 .containerForm {
   position: fixed;
   z-index: 50;
-  top: 85px;
+  top: #{$header-form-height}px;
   right: 0;
   opacity: 1;
   transition: all 0.5s ease;
@@ -194,12 +195,10 @@ header {
   //overflow: hidden;
   //overflow-y: auto;
   @include mobile-all() {
-    position: fixed;
-    top: 60px;
+    top: #{$header-height-mob}px;
     background-color: $bg-nav-color;
-    right: 0;
-    width: 100%;
-    min-height: calc(100vh - #{$header-height}px);
+    width: 100vw;
+    height: calc(100vh - #{$header-height-mob}px);
     overflow: hidden;
     overflow-y: auto;
     transition: all 0.5s;
@@ -207,19 +206,57 @@ header {
   &__form {
     background-color: $bg-nav-color;
     @include mobile-all() {
-      width: 100%;
+      min-height: calc(100vh);
+      overflow: hidden;
+      overflow-y: auto;
+    }
+    &__products {
+      display: none;
+    }
+    &__allproducts {
+      background-color: #bdbdbd;
+    }
+    &__myBasket {
+      transition: color 0.3s;
+      cursor: pointer;
+      &:hover {
+        color: darkorange;
+      }
+    }
+    &__order {
+      &__basketButton {
+        cursor: pointer;
+        background-color: orange;
+        border: none;
+        box-sizing: border-box;
+        margin: auto 0;
+        padding: 10px 20px;
+        color: white;
+        transition: background-color 0.3s;
+        @include mobile-all() {
+          padding: 0 10px;
+          width: 100%;
+        }
+        &:hover {
+          background-color: darkorange;
+        }
+      }
     }
   }
 
   form {
     display: block;
     ul {
-
-      display: flex;
+      display: block;
       flex-direction: column;
       padding: 0;
       margin: 0;
-
+      @include mobile-all() {
+        position: relative;
+        min-height: calc(100vh - #{$header-height-mob}px);
+        overflow: hidden;
+        overflow-y: auto;
+      }
       li {
         max-width: 450px;
         width: 100%;
@@ -232,9 +269,7 @@ header {
         color: gray;
         @include mobile-all() {
           position: relative;
-          top: 0;
           background-color: $bg-nav-color;
-          right: 0;
           max-width: 100vw;
           width: 100%;
           //min-height: calc(100vh - #{$header-height-mob}px);
@@ -246,35 +281,7 @@ header {
           padding: 13px 60px;
         }
       }
-      .products {
-        display: none;
-      }
-      .allproducts {
-        background-color: #bdbdbd;
-      }
-      .myBasket {
-        transition: color 0.3s;
-        cursor: pointer;
-        &:hover {
-          color: darkorange;
-        }
-      }
-      .basketButton {
-        cursor: pointer;
-        background-color: orange;
-        border: none;
-        box-sizing: border-box;
-        margin: auto 0;
-        padding: 10px 20px;
-        color: white;
-        transition: background-color 0.3s;
-        @include mobile-all() {
-          padding: 0 10px;
-        }
-        &:hover {
-          background-color: darkorange;
-        }
-      }
+
     }
   }
 }
@@ -286,7 +293,7 @@ header {
 .menuLeft {
   position: fixed;
   top: #{$header-height}px;
-  z-index: 100;
+  z-index: 30;
   display: block;
   width: 300px;
   background-color: $bg-nav-color;
@@ -568,14 +575,16 @@ main {
         align-items: center;
         box-sizing: border-box;
         padding: 30px 20px;
-        position: absolute;
+        position: relative;
         width: 100vw;
-        height: auto;
-        margin: 100px 0 0 -300px;
+        margin: 100px 0 0 -280px;
         font-size: 1.5rem;
         line-height: 50px;
         letter-spacing: 3px;
         background-color: $bg-nav-color;
+        height: calc(100vh - #{$header-height-mob}px);
+        overflow: hidden;
+        overflow-y: auto;
         ul {
           li {
             display: block;
