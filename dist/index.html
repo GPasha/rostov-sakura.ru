@@ -38,11 +38,43 @@
 <aside class="containerForm">
     <form class="containerForm__form border">
         <ul>
-            <li class="containerForm__form__basket border-bottom">Корзина заказа</li>
+            <li class="containerForm__form__basket border-bottom">
+                <a class="containerForm__form__basket__btn btn_link" href="#" title="вернуться назад">
+                    <img class="icon icon-arrow-back" src="img/icon_arrow_back.png" width="20">
+                </a>
+                <div class="containerForm__form__basket__title">Корзина заказа</div>
+            </li>
             <li class="containerForm__form__myBasket border-bottom">Моя корзина</li>
-            <li class="containerForm__form__products"></li>
-            <li class="containerForm__form__allproducts border-bottom">Всего</li>
-            <li class="containerForm__form__allsum border-bottom">Общая сумма</li>
+            <li class="containerForm__form__products border-bottom">
+                <div class="containerForm__form__products__name">
+                    <a class="">Выб.прод.sdf sdf dsf sdf </a>
+                </div>
+                <div class="containerForm__form__products__correct">
+                        <a class="remove">
+                            <img src="img/close.png" width="20">
+                        </a>
+                        <!--<input>-->
+                        <span class="number">1</span>
+                        <a class="add">
+                            <img src="img/plus.png" width="17">
+                        </a>
+                </div>
+                <div class="containerForm__form__products__sum">
+                    <span class="rub">руб.</span>
+                </div>
+            </li>
+            <li class="containerForm__form__allproducts border-bottom">
+                <div class="containerForm__form__allproducts__text">Всегo</div>
+                <div class="containerForm__form__allproducts__allsum">
+                    <span class="rub">руб.</span>
+                </div>
+            </li>
+            <li class="containerForm__form__allsum border-bottom">
+                <div class="containerForm__form__allsum__text">Общая сумма</div>
+                <div class="containerForm__form__allsum__allsum">
+                    <span class="rub">руб.</span>
+                </div>
+            </li>
             <li class="containerForm__form__order border-bottom d-flex justify-content-center align-items-center">
                 <button class="containerForm__form__order__basketButton">Оформить заказ</button>
             </li>
@@ -55,31 +87,31 @@
         <div class="menuLeft__nameMenu__item activeBord menuSection-1" data-id="menuSection-1">Категории</div>
         <div class="menuLeft__nameMenu__item menuSection-2" data-id="menuSection-2">Ингредиенты</div>
     </div>
-    <div class="menuLeft__sections">
-        <ul id="menuSection-1" class="menuLeft__sections__menuList">
-            <li class="border-bottom"><a href="#"><img src="img/menufood.png"
-                                                    alt="menu rostov sakura"><span>Роллы</span></a></li>
-            <li class="border-bottom"><a href="#"><img src="img/menufood.png"
-                                                    alt="menu rostov sakura"><span>Горячие роллы</span></a>
-            </li>
-            <li class="border-bottom"><a href="#"><img src="img/menufood.png"
-                                                    alt="menu rostov sakura"><span>Сеты</span></a></li>
-            <li class="border-bottom"><a href="#"><img src="img/menufood.png"
-                                                    alt="menu rostov sakura"><span>Пицца</span></a></li>
-            <li class="border-bottom"><a href="#"><img src="img/menufood.png"
-                                                    alt="menu rostov sakura"><span>Супы</span></a></li>
-            <li class="border-bottom"><a href="#"><img src="img/menufood.png"
-                                                    alt="menu rostov sakura"><span>Салаты</span></a></li>
-            <li class="border-bottom"><a href="#"><img src="img/menufood.png"
-                                                    alt="menu rostov sakura"><span>Закуски</span></a></li>
-            <li class="border-bottom"><a href="#"><img src="img/menufood.png"
-                                                    alt="menu rostov sakura"><span>Горячее</span></a></li>
-            <li class="border-bottom"><a href="#"><img src="img/menufood.png"
-                                                    alt="menu rostov sakura"><span>Десерты</span></a></li>
-            <li class="border-bottom"><a href="#"><img src="img/menufood.png"
-                                                                  alt="menu rostov sakura"><span>Напитки</span></a></li>
-        </ul>
-        <ul id="menuSection-2" class="menuLeft__sections__menuList">
+    <div class="menuLeft__sections nano">
+            <ul id="menuSection-1" class="menuLeft__sections__menuList nano-content">
+                <li class="border-bottom"><a href="#"><img src="img/menufood.png"
+                                                           alt="menu rostov sakura"><span>Роллы</span></a></li>
+                <li class="border-bottom"><a href="#"><img src="img/menufood.png"
+                                                           alt="menu rostov sakura"><span>Горячие роллы</span></a>
+                </li>
+                <li class="border-bottom"><a href="#"><img src="img/menufood.png"
+                                                           alt="menu rostov sakura"><span>Сеты</span></a></li>
+                <li class="border-bottom"><a href="#"><img src="img/menufood.png"
+                                                           alt="menu rostov sakura"><span>Пицца</span></a></li>
+                <li class="border-bottom"><a href="#"><img src="img/menufood.png"
+                                                           alt="menu rostov sakura"><span>Супы</span></a></li>
+                <li class="border-bottom"><a href="#"><img src="img/menufood.png"
+                                                           alt="menu rostov sakura"><span>Салаты</span></a></li>
+                <li class="border-bottom"><a href="#"><img src="img/menufood.png"
+                                                           alt="menu rostov sakura"><span>Закуски</span></a></li>
+                <li class="border-bottom"><a href="#"><img src="img/menufood.png"
+                                                           alt="menu rostov sakura"><span>Горячее</span></a></li>
+                <li class="border-bottom"><a href="#"><img src="img/menufood.png"
+                                                           alt="menu rostov sakura"><span>Десерты</span></a></li>
+                <li class="border-bottom"><a href="#"><img src="img/menufood.png"
+                                                           alt="menu rostov sakura"><span>Напитки</span></a></li>
+            </ul>
+        <ul id="menuSection-2" class="menuLeft__sections__menuList  nano-content">
             <li class="border-bottom"><a href="#"><img src="img/menufood.png"
                                                     alt="menu rostov sakura"><span>Авакадо</span></a></li>
             <li class="border-bottom"><a href="#"><img src="img/menufood.png"
@@ -175,7 +207,6 @@
         crossorigin="anonymous"></script>
 <script src="js/libs.min.js"></script>
 <script src="js/common.js"></script>
-
 
 <script>
     $(window).on('load', function () {
