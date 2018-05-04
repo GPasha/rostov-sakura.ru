@@ -6,13 +6,16 @@
     <title>rostov-sakura</title>
     <!--<link rel="stylesheet" type="text/css" href="css/critical.css">-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--<link rel="stylesheet" type="text/css" href="css/slick.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>-->
+
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">-->
 </head>
 <body>
 
 <header>
-        <nav class="navbar-head pos-f-t row justify-content-xl-between justify-content-lg-between justify-content-md-end justify-content-sm-end justify-content-end p-0 m-0">
+        <nav class="navbar-head pos-f-t row justify-content-xl-between justify-content-lg-between justify-content-md-end justify-content-sm-end justify-content-end p-0 m-0 border-bottom">
             <div class="navbar-head__menu col-xl-7 col-lg-8 col-md-7 col-sm-7 p-0 m-0">
                 <ul>
                     <li><a href="#">Акции</a></li>
@@ -87,8 +90,8 @@
         <div class="menuLeft__nameMenu__item activeBord menuSection-1" data-id="menuSection-1">Категории</div>
         <div class="menuLeft__nameMenu__item menuSection-2" data-id="menuSection-2">Ингредиенты</div>
     </div>
-    <div class="menuLeft__sections nano">
-            <ul id="menuSection-1" class="menuLeft__sections__menuList nano-content">
+    <div class="menuLeft__sections">
+            <ul id="menuSection-1" class="menuLeft__sections__menuList">
                 <li class="border-bottom"><a href="#"><img src="img/menufood.png"
                                                            alt="menu rostov sakura"><span>Роллы</span></a></li>
                 <li class="border-bottom"><a href="#"><img src="img/menufood.png"
@@ -111,7 +114,7 @@
                 <li class="border-bottom"><a href="#"><img src="img/menufood.png"
                                                            alt="menu rostov sakura"><span>Напитки</span></a></li>
             </ul>
-        <ul id="menuSection-2" class="menuLeft__sections__menuList  nano-content">
+        <ul id="menuSection-2" class="menuLeft__sections__menuList">
             <li class="border-bottom"><a href="#"><img src="img/menufood.png"
                                                     alt="menu rostov sakura"><span>Авакадо</span></a></li>
             <li class="border-bottom"><a href="#"><img src="img/menufood.png"
@@ -145,13 +148,24 @@
 
     <section class="content activeFooter container-fluid containerMenu d-flex p-0 m-0">
         <div class="menuRight container-fluid p-0 m-0">
-            <div class="slider">
+            <div class="slider fotorama"
+                 data-nav="false"
+                 data-arrows="false"
+                 data-transition="slide"
+                 data-keyboard="true"
+                 data-loop="true"
+                 data-autoplay="6000"
+                 data-transitionduration="1200">
+                <a href="#" class="showed" alt="logo menu"><img src="img/logo.jpg"></a>
+                <a href="#" alt="logo menu"><img src="img/logo.jpg"></a>
+                <a href="#" alt="logo menu"><img src="img/logo.jpg"></a>
+                <a href="#" alt="logo menu"><img src="img/logo.jpg"></a>
                 <a href="#" alt="logo menu"><img src="img/logo.jpg"></a>
             </div>
         </div>
     </section>
 
-    <div class="footer activeFooter border-top">
+    <div class="footer activeFooter">
         <div class="footer__info">
             <div class="footer__info__text informationFooter">
                 <div class="footer__info__text__img">
@@ -196,9 +210,9 @@
 <!-- scripts -->
 <script type="text/javascript" src="js/main.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
+        <!--integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"-->
+        <!--crossorigin="anonymous"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
         integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
         crossorigin="anonymous"></script>
@@ -207,6 +221,31 @@
         crossorigin="anonymous"></script>
 <script src="js/libs.min.js"></script>
 <script src="js/common.js"></script>
+<!--<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
+<!--<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
+<!--<script type="text/javascript" src="js/scripts/slick.min.js"></script>-->
+
+<!--<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>-->
+<!--<link href="css/fotorama.css" rel="stylesheet">-->
+<!--<script src="js/fotorama.js"></script>-->
+
+<!-- 1. Link to jQuery (1.8 or later), -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB -->
+
+<!-- fotorama.css & fotorama.js. -->
+<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+
+<!--<script>-->
+    <!--$(document).ready(function(){-->
+        <!--$('.slider').slick({-->
+            <!--slidesToShow: 1,-->
+            <!--slidesToScroll: 1,-->
+            <!--autoplay: true,-->
+            <!--autoplaySpeed: 2000,-->
+            <!--});-->
+    <!--});-->
+<!--</script>-->
 
 <script>
     $(window).on('load', function () {
@@ -290,5 +329,18 @@
         }
     });
 </script>
+<!--<script>-->
+    <!--var btn = document.querySelector(".slider");-->
+    <!--var images = document.querySelectorAll(".slider img");-->
+
+    <!--btn.onclick = function (){-->
+        <!--images[i].className = "";-->
+        <!--i++;-->
+        <!--if (i >= images.length){-->
+        <!--i = 0;-->
+        <!--}-->
+        <!--images[i].className = "showed";-->
+    <!--}-->
+<!--</script>-->
 </body>
 </html>
