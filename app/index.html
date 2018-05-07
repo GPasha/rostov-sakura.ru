@@ -6,6 +6,7 @@
     <title>rostov-sakura</title>
     <!--<link rel="stylesheet" type="text/css" href="css/critical.css">-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
     <!--<link rel="stylesheet" type="text/css" href="css/slick.css"/>-->
     <!--<link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>-->
 
@@ -146,26 +147,392 @@
 
 <main>
 
-    <section class="content activeFooter container-fluid containerMenu d-flex p-0 m-0">
-        <div class="menuRight container-fluid p-0 m-0">
-            <div class="slider fotorama"
-                 data-nav="false"
-                 data-arrows="false"
-                 data-transition="slide"
-                 data-keyboard="true"
-                 data-loop="true"
-                 data-autoplay="6000"
-                 data-transitionduration="1200">
-                <a href="#" class="showed" alt="logo menu"><img src="img/logo.jpg"></a>
-                <a href="#" alt="logo menu"><img src="img/logo.jpg"></a>
-                <a href="#" alt="logo menu"><img src="img/logo.jpg"></a>
-                <a href="#" alt="logo menu"><img src="img/logo.jpg"></a>
-                <a href="#" alt="logo menu"><img src="img/logo.jpg"></a>
+    <!--<section class="content activeFooter container-fluid containerMenu d-flex p-0 m-0">-->
+        <!--<div class="menuRight container-fluid p-0 m-0">-->
+            <!--<div class="slider fotorama"-->
+                 <!--data-nav="false"-->
+                 <!--data-arrows="false"-->
+                 <!--data-transition="slide"-->
+                 <!--data-keyboard="true"-->
+                 <!--data-loop="true"-->
+                 <!--data-autoplay="6000"-->
+                 <!--data-transitionduration="1200">-->
+                <!--<a href="#" class="showed" alt="logo menu"><img src="img/logo.jpg"></a>-->
+                <!--<a href="#" alt="logo menu"><img src="img/logo.jpg"></a>-->
+                <!--<a href="#" alt="logo menu"><img src="img/logo.jpg"></a>-->
+                <!--<a href="#" alt="logo menu"><img src="img/logo.jpg"></a>-->
+                <!--<a href="#" alt="logo menu"><img src="img/logo.jpg"></a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</section>-->
+    <div class="catalog container-fluid">
+        <div class="catalog__title row">
+            <h1>Роллы</h1>
+        </div>
+        <div class="catalog__filter row border">
+            <div class="catalog__filter__left">
+                <div class="catalog__filter__left__title" data-filter="toggle">
+                    <div href="#" class="catalog__filter__left__title__add"><img src="img/plus.png" width="18" alt="add product"></div>
+                    <div href="#" class="catalog__filter__left__title__text">Фильтр</div>
+                </div>
+                <div class="catalog__filter__left__sort">
+                    <div class="catalog__filter__left__sort__text">Сортировать по цене</div>
+                    <div class="catalog__filter__left__sort__img"><i class="fas fa-signal"></i></div>
+                </div>
+            </div>
+            <button class="catalog__filter__clear btn btn_sm btn_link" type="button" >
+                <div class="catalog__filter__clear__img"><img src="img/close.png" width="18"></div>
+                <div class="catalog__filter__clear__text">Сбросить фильтры</div>
+            </button>
+        </div>
+        <div class="catalog__container row">
+            <div class="catalog__container__item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 border">
+                <a class="catalog__container__item__img" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                <div class="catalog__container__item__title">
+                    <a class="#">Norvegian Popy</a>
+                </div>
+                <div class="catalog__container__item__desk">
+                    традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                </div>
+                <div class="catalog__container__item__bottom">
+                    <div class="catalog__container__item__bottom__price">
+                        377
+                        <span class="rub"> руб.</span>
+                    </div>
+                    <div class="catalog__container__item__bottom__control">
+                        <a class="catalog__container__item__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                        <span class="catalog__container__item__bottom__control__number">0</span>
+                        <a class="catalog__container__item__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__container__item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 border">
+                <a class="catalog__container__item__img" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                <div class="catalog__container__item__title">
+                    <a class="#">Norvegian Popy</a>
+                </div>
+                <div class="catalog__container__item__desk">
+                    традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                </div>
+                <div class="catalog__container__item__bottom">
+                    <div class="catalog__container__item__bottom__price">
+                        377
+                        <span class="rub"> руб.</span>
+                    </div>
+                    <div class="catalog__container__item__bottom__control">
+                        <a class="catalog__container__item__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                        <span class="catalog__container__item__bottom__control__number">0</span>
+                        <a class="catalog__container__item__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__container__item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 border">
+                <a class="catalog__container__item__img" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                <div class="catalog__container__item__title">
+                    <a class="#">Norvegian Popy</a>
+                </div>
+                <div class="catalog__container__item__desk">
+                    традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                </div>
+                <div class="catalog__container__item__bottom">
+                    <div class="catalog__container__item__bottom__price">
+                        377
+                        <span class="rub"> руб.</span>
+                    </div>
+                    <div class="catalog__container__item__bottom__control">
+                        <a class="catalog__container__item__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                        <span class="catalog__container__item__bottom__control__number">0</span>
+                        <a class="catalog__container__item__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__container__item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 border">
+                <a class="catalog__container__item__img" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                <div class="catalog__container__item__title">
+                    <a class="#">Norvegian Popy</a>
+                </div>
+                <div class="catalog__container__item__desk">
+                    традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                </div>
+                <div class="catalog__container__item__bottom">
+                    <div class="catalog__container__item__bottom__price">
+                        377
+                        <span class="rub"> руб.</span>
+                    </div>
+                    <div class="catalog__container__item__bottom__control">
+                        <a class="catalog__container__item__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                        <span class="catalog__container__item__bottom__control__number">0</span>
+                        <a class="catalog__container__item__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__container__item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 border">
+                <a class="catalog__container__item__img" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                <div class="catalog__container__item__title">
+                    <a class="#">Norvegian Popy</a>
+                </div>
+                <div class="catalog__container__item__desk">
+                    традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                </div>
+                <div class="catalog__container__item__bottom">
+                    <div class="catalog__container__item__bottom__price">
+                        377
+                        <span class="rub"> руб.</span>
+                    </div>
+                    <div class="catalog__container__item__bottom__control">
+                        <a class="catalog__container__item__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                        <span class="catalog__container__item__bottom__control__number">0</span>
+                        <a class="catalog__container__item__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__container__item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 border">
+                <a class="catalog__container__item__img" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                <div class="catalog__container__item__title">
+                    <a class="#">Norvegian Popy</a>
+                </div>
+                <div class="catalog__container__item__desk">
+                    традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                </div>
+                <div class="catalog__container__item__bottom">
+                    <div class="catalog__container__item__bottom__price">
+                        377
+                        <span class="rub"> руб.</span>
+                    </div>
+                    <div class="catalog__container__item__bottom__control">
+                        <a class="catalog__container__item__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                        <span class="catalog__container__item__bottom__control__number">0</span>
+                        <a class="catalog__container__item__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__container__item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 border">
+                <a class="catalog__container__item__img" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                <div class="catalog__container__item__title">
+                    <a class="#">Norvegian Popy</a>
+                </div>
+                <div class="catalog__container__item__desk">
+                    традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                </div>
+                <div class="catalog__container__item__bottom">
+                    <div class="catalog__container__item__bottom__price">
+                        377
+                        <span class="rub"> руб.</span>
+                    </div>
+                    <div class="catalog__container__item__bottom__control">
+                        <a class="catalog__container__item__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                        <span class="catalog__container__item__bottom__control__number">0</span>
+                        <a class="catalog__container__item__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__container__item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 border">
+                <a class="catalog__container__item__img" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                <div class="catalog__container__item__title">
+                    <a class="#">Norvegian Popy</a>
+                </div>
+                <div class="catalog__container__item__desk">
+                    традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                </div>
+                <div class="catalog__container__item__bottom">
+                    <div class="catalog__container__item__bottom__price">
+                        377
+                        <span class="rub"> руб.</span>
+                    </div>
+                    <div class="catalog__container__item__bottom__control">
+                        <a class="catalog__container__item__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                        <span class="catalog__container__item__bottom__control__number">0</span>
+                        <a class="catalog__container__item__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__container__item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 border">
+                <a class="catalog__container__item__img" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                <div class="catalog__container__item__title">
+                    <a class="#">Norvegian Popy</a>
+                </div>
+                <div class="catalog__container__item__desk">
+                    традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                </div>
+                <div class="catalog__container__item__bottom">
+                    <div class="catalog__container__item__bottom__price">
+                        377
+                        <span class="rub"> руб.</span>
+                    </div>
+                    <div class="catalog__container__item__bottom__control">
+                        <a class="catalog__container__item__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                        <span class="catalog__container__item__bottom__control__number">0</span>
+                        <a class="catalog__container__item__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__container__item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 border">
+                <a class="catalog__container__item__img" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                <div class="catalog__container__item__title">
+                    <a class="#">Norvegian Popy</a>
+                </div>
+                <div class="catalog__container__item__desk">
+                    традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                </div>
+                <div class="catalog__container__item__bottom">
+                    <div class="catalog__container__item__bottom__price">
+                        377
+                        <span class="rub"> руб.</span>
+                    </div>
+                    <div class="catalog__container__item__bottom__control">
+                        <a class="catalog__container__item__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                        <span class="catalog__container__item__bottom__control__number">0</span>
+                        <a class="catalog__container__item__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__container__item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 border">
+                <a class="catalog__container__item__img" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                <div class="catalog__container__item__title">
+                    <a class="#">Norvegian Popy</a>
+                </div>
+                <div class="catalog__container__item__desk">
+                    традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                </div>
+                <div class="catalog__container__item__bottom">
+                    <div class="catalog__container__item__bottom__price">
+                        377
+                        <span class="rub"> руб.</span>
+                    </div>
+                    <div class="catalog__container__item__bottom__control">
+                        <a class="catalog__container__item__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                        <span class="catalog__container__item__bottom__control__number">0</span>
+                        <a class="catalog__container__item__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__container__item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 border">
+                <a class="catalog__container__item__img" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                <div class="catalog__container__item__title">
+                    <a class="#">Norvegian Popy</a>
+                </div>
+                <div class="catalog__container__item__desk">
+                    традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                </div>
+                <div class="catalog__container__item__bottom">
+                    <div class="catalog__container__item__bottom__price">
+                        377
+                        <span class="rub"> руб.</span>
+                    </div>
+                    <div class="catalog__container__item__bottom__control">
+                        <a class="catalog__container__item__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                        <span class="catalog__container__item__bottom__control__number">0</span>
+                        <a class="catalog__container__item__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__container__item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12">
+                <a class="catalog__container__item__img" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                <div class="catalog__container__item__title">
+                    <a class="#">Norvegian Popy</a>
+                </div>
+                <div class="catalog__container__item__desk">
+                    традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                </div>
+                <div class="catalog__container__item__bottom">
+                    <div class="catalog__container__item__bottom__price">
+                        377
+                        <span class="rub"> руб.</span>
+                    </div>
+                    <div class="catalog__container__item__bottom__control">
+                        <a class="catalog__container__item__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                        <span class="catalog__container__item__bottom__control__number">0</span>
+                        <a class="catalog__container__item__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__container__item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 border">
+                <a class="catalog__container__item__img" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                <div class="catalog__container__item__title">
+                    <a class="#">Norvegian Popy</a>
+                </div>
+                <div class="catalog__container__item__desk">
+                    традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                </div>
+                <div class="catalog__container__item__bottom">
+                    <div class="catalog__container__item__bottom__price">
+                        377
+                        <span class="rub"> руб.</span>
+                    </div>
+                    <div class="catalog__container__item__bottom__control">
+                        <a class="catalog__container__item__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                        <span class="catalog__container__item__bottom__control__number">0</span>
+                        <a class="catalog__container__item__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="catalog__container__itemBig container">
+                <div class="row">
+                    <a class="catalog__container__itemBig__img col-6" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                    <div class="catalog__container__itemBig__rightContent col-6">
+                        <div class="catalog__container__itemBig__rightContent__title">
+                            <a class="#">Norvegian Popy</a>
+                        </div>
+                        <div class="catalog__container__itemBig__rightContent__bottom border_bottom">
+                            <div class="catalog__container__itemBig__rightContent__bottom__price">
+                                377
+                                <span class="rub">&#8381;</span>
+                            </div>
+                            <div class="catalog__container__itemBig__rightContent__bottom__control">
+                                <a class="catalog__container__itemBig__rightContent__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                                <span class="catalog__container__itemBig__rightContent__bottom__control__number">0</span>
+                                <a class="catalog__container__itemBig__rightContent__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="catalog__container__itemBig__rightContent__chapters">
+                            <div class="catalog__container__itemBig__rightContent__chapters__item">Описание</div>
+                            <div class="catalog__container__itemBig__rightContent__chapters__item">Поделиться</div>
+                        </div>
+                        <div class="catalog__container__itemBig__rightContent__desk">
+                            традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                        </div>
+                        <div class="catalog__container__itemBig__rightContent__nutrition">
+                            <div class="catalog__container__itemBig__rightContent__nutrition__item">466 kcal.</div>
+                            <div class="catalog__container__itemBig__rightContent__nutrition__item">210/10/3/20 гр.</div>
+                            <div class="catalog__container__itemBig__rightContent__nutrition__item">Белки: 17.7 г</div>
+                            <div class="catalog__container__itemBig__rightContent__nutrition__item">Жиры: 22.0 г</div>
+                            <div class="catalog__container__itemBig__rightContent__nutrition__item">Углеводы: 49.3 г</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-
-    <div class="footer activeFooter">
+    </div>
+    <div class="footer activeFooter border">
         <div class="footer__info">
             <div class="footer__info__text informationFooter">
                 <div class="footer__info__text__img">

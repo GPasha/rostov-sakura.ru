@@ -108,16 +108,40 @@
 
 <main>
 
-    <section class="container-fluid d-flex p-0 m-0">
-        <div class="row p-0 m-0">
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12"></div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12"></div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12"></div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12"></div>
+    <div class="catalog container-fluid">
+        <div class="catalog__title row">
+            <h1>Роллы</h1>
         </div>
+        <div class="catalog__filter row" products-filter="">
+            <span class="filters__title" data-filter="toggle"></span>
+            <span class="filters__sort"></span>
+            <button class="filters__clear btn btn_sm btn_link" type="button" ></button>
+            <div></div>
+        </div>
+        <div class="catalog__container row">
+            <div class="catalog__container__item col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 border">
+                <a class="catalog__container__item__img" href="#"><img src="img/rolls_norvegian_popy.jpg" alt="роллы norvegian popy"></a>
+                <div class="catalog__container__item__title">
+                    <a class="#">Norvegian Popy</a>
+                </div>
+                <div class="catalog__container__item__desk">
+                    традиционная японская разновидность суси. Рис для суси, спайси копченый угорь, спайси лосось, спайси тунец, тобико и авокадо
+                </div>
+                <div class="catalog__container__item__bottom">
+                    <div class="catalog__container__item__bottom__price">
+                        377
+                        <span class="rub"> руб.</span>
+                    </div>
+                    <div class="catalog__container__item__bottom__control">
+                        <a class="catalog__container__item__bottom__control__minus" href="#"><img src="img/minus.png" width="18" alt="delete"></a>
+                        <span class="catalog__container__item__bottom__control__number">0</span>
+                        <a class="catalog__container__item__bottom__control__plus" href="#"><img src="img/plus.png" width="18" alt="add"></a>
 
+
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
 
     <div class="footer activeFooter border-top">
         <div class="footer__info">
