@@ -64,6 +64,7 @@ header {
     background-color: $bg-nav-color;
     height: 85px;
     border-left: 1px solid $border-color;
+    font-family: 'core_rhino_45_regular',Helvetica,Arial,'Helvetica CY','Nimbus Sans L',sans-serif;
 
     @include mobile-all() {
       justify-content: space-around;
@@ -396,6 +397,7 @@ header {
     display: flex;
     border-bottom: 1px solid $border-color;
     background-color: $bg-nav-color;
+    font-family: 'core_rhino_45_regular',Helvetica,Arial,'Helvetica CY','Nimbus Sans L',sans-serif;
 
     @include mobile-all() {
       width: 100%;
@@ -434,6 +436,8 @@ header {
     transform: translateX(0);
     display: flex;
     flex-flow: row nowrap;
+    font-family: 'core_rhino_35_light',Helvetica,Arial,'Helvetica CY','Nimbus Sans L',sans-serif;
+    font-size: 0.75rem;
     @include mobile-all() {
     }
 
@@ -628,7 +632,7 @@ main {
       @include mobile-all() {
         border: none;
         margin-bottom: 0;
-        padding: 10px 10px 20px 0;
+        padding: 10px 10px 0;
       }
       &__left{
         display: flex;
@@ -687,6 +691,30 @@ main {
       }
       button{
         outline: 0 !important;
+      }
+    }
+    &__scrolling{
+      display: none;
+      @include mobile-all() {
+        display: block;
+        margin: 0 -32px;
+      }
+      &__container{
+        @include mobile-all() {
+          display: flex;
+          position: relative;
+          left: 0;
+          background-color:$border-color;
+          padding-left: 5px;
+          margin-bottom: 0;
+        }
+        &__item{
+          list-style-type: none;
+          white-space: nowrap;
+          margin-right: 15px;
+          box-sizing:border-box;
+          padding: 10px 0;
+        }
       }
     }
     &__container{
