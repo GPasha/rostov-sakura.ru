@@ -12,7 +12,7 @@ $bg-form-color-grey: #bdbdbd;
 $border-color: lightgrey;
 $border-bottom-orange: orange;
 $catalog-text-color: #655e5e;
-
+$nutririon-text-color:#716c6c;
 
 
 
@@ -552,14 +552,22 @@ header {
 
 main {
   position: absolute;
+  background-color: $bg-nav-color;
   z-index: 40;
-  border-left: 1px solid #a5a5a5;
   display: flex;
   flex-direction: column;
+  padding-left: 0;
   margin-left: 300px;
-  width: calc(100vw - 317px);
+  width: calc(100vw - 320px);
+  //border-right: 1px solid $border-color;
   @include mobile-all() {
-    z-index: 25;
+    margin-left: 0;
+    width: 100vw;
+    //height: calc(100vh - #{$header-height-mob}px);
+    //overflow: hidden;
+    //overflow-y: auto;
+    //padding-top: 0;
+    //margin-top: 60px;
   }
   //.content {
   //  .menuRight {
@@ -581,11 +589,21 @@ main {
   //  }
   //}
   .catalog{
+    border-left: 1px solid $border-color;
     margin-top: #{$header-form-height}px;
     box-sizing: border-box;
     padding: 32px;
     background-color:$bg-nav-color;
-    padding-left: 35px;
+
+    @include mobile-all() {
+      margin-left: 0;
+      width: 100vw;
+      height: calc(100vh - 60px);
+      overflow: hidden;
+      overflow-y: auto;
+      padding-top: 0;
+      margin-top: 60px;
+    }
     &__title{
       h1{
         margin-top: 0;
@@ -594,6 +612,9 @@ main {
         font-size: 2.25rem;
         line-height: 1;
         margin-bottom: 25px;
+        @include mobile-all() {
+          display: none;
+        }
       }
     }
     &__filter{
@@ -603,14 +624,20 @@ main {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border: 1px solid $border-color;
+      @include mobile-all() {
+        border: none;
+        margin-bottom: 0;
+        padding: 10px 10px 20px 0;
+      }
       &__left{
         display: flex;
         flex-direction: row;
-
         &__title{
           display: flex;
           flex-direction: row;
           flex-wrap: nowrap;
+
           &__add{
             margin-right: 16px;
             cursor: pointer;
@@ -619,6 +646,9 @@ main {
             padding-right: 16px;
             cursor: pointer;
             border-right: 1px solid $border-color;
+            @include mobile-all() {
+              border-right: none;
+            }
           }
         }
         &__sort{
@@ -627,8 +657,14 @@ main {
           cursor: pointer;
           font-size: 12px;
           margin: 0 16px;
+          @include mobile-all() {
+            display: none;
+          }
           &__text{
             margin-right: 8px;
+            @include media-breakpoint-only(md) {
+              display: none;
+            }
           }
           &__img{
             i {
@@ -642,6 +678,9 @@ main {
         flex-direction: row;
         text-decoration: none;
         border: 0;
+        @include mobile-all() {
+          display: none;
+        }
         &__img{
           margin-right: 12px;
         }
@@ -651,11 +690,13 @@ main {
       }
     }
     &__container{
-
       &__item{
         padding: 24px 24px 75px;
         border: 1px solid $border-color;
         box-sizing: border-box;
+        @include mobile-all() {
+          padding: 7px 20px 2px;
+        }
         &__img{
           img{
             max-width: 100%;
@@ -667,6 +708,13 @@ main {
           font-family: 'core_rhino_45_regular',Helvetica,Arial,'Helvetica CY','Nimbus Sans L',sans-serif;
           font-style: normal;
           margin: 0 0 16px 0;
+          @include mobile-all() {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 16px;
+            padding-left: 7px;
+            margin-bottom: 7px;
+          }
           a{
 
           }
@@ -677,14 +725,30 @@ main {
             font-size: 0.8125rem;
             line-height: 1.4;
             letter-spacing: 0.02em;
+            font-family: 'helvetica_neue_cyr_light',Helvetica,Arial,'Helvetica CY','Nimbus Sans L',sans-serif;
+            @include mobile-all() {
+              max-height: 45px;
+              font-size: 0.8125rem;
+              line-height: 1.2;
+              padding-left: 7px;
+              height: auto;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
         }
         &__bottom{
             position: absolute;
             right: 24px;
-            bottom: 24px;
+            bottom: -60px;
             left: 24px;
             display: flex;
             justify-content: space-between;
+            @include mobile-all() {
+              flex-direction: column;
+              position: relative;
+              right: 0;
+              bottom: 0;
+            }
           &__price{
               float: left;
               font-size: 1.125rem;
@@ -693,6 +757,14 @@ main {
               line-height: 32px;
               -webkit-transition: all 200ms ease;
               transition: all 200ms ease;
+              @include mobile-all() {
+                font-size: 1rem;
+                margin-bottom: 10px;
+                flex-direction: row;
+                display: flex;
+                justify-content: flex-end;
+                padding-right: 30px;
+              }
             &__rub{
               font-family: 'ruble';
               line-height: 1;
@@ -705,6 +777,15 @@ main {
             padding: 0;
             display: flex;
             align-items: center;
+            @include mobile-all() {
+              font-size: 0.875rem;
+              margin: 0;
+              height: 32px;
+              padding: 5px 0;
+              justify-content: flex-end;
+              padding-right: 23px;
+              }
+
             &__number{
               font-size: 1rem;
               font-weight: bold;
@@ -712,18 +793,30 @@ main {
               font-style: normal;
               line-height: 32px;
               margin: 0 10px;
+              @include mobile-all() {
+                margin: 0 5px;
+              }
             }
           }
         }
       }
-
+      .colImg{
+        @include mobile-all() {
+          padding: 0 0 0 3px;
+          display: flex;
+          align-items: center;
+        }
+      }
       //Блюдо в полный экран
 
       &__itemBig{
+        margin: 20px 0;
         padding: 24px;
         border: 1px solid $border-color;
         box-sizing: border-box;
-
+        @include mobile-all() {
+          padding: 20px 20px 0;
+        }
           &__img{
             img{
               max-width: 100%;
@@ -733,11 +826,15 @@ main {
           &__rightContent{
             &__title{
               margin: 5px 0 25px;
-              font-size: 1.5rem;
+              font-size: 2rem;
               margin-right: 45px;
               //font-size: 2rem;
               font-family: 'core_rhino_25_thin',Helvetica,Arial,'Helvetica CY','Nimbus Sans L',sans-serif;
               font-style: normal;
+              @include mobile-all() {
+                margin: 0 0 17px;
+                font-size: 1.25rem;
+              }
               a{
               }
             }
@@ -750,24 +847,34 @@ main {
               justify-content: flex-start;
               align-items: center;
               margin-bottom: 32px;
+              color: $catalog-text-color;
+              @include media-breakpoint-only(lg) {
+                margin-bottom: 12px;
+              }
+              @include mobile-all() {
+                justify-content: space-between;
+              }
               &__price{
                 //display: inline-block;
                 margin-right: 32px;
                 //color: #fff;
                 font-size: 1.5rem;
-                font-family: 'core_rhino_45_regular',Helvetica,Arial,'Helvetica CY','Nimbus Sans L',sans-serif;
+                font-family: 'core_rhino_45_regular';
                 font-style: normal;
                 line-height: 32px;
                 //vertical-align: top;
+                @include mobile-all() {
+                  margin: 0;
+                  font-size: 1.25rem;
+                }
                 &__rub{
-                  font-family: 'ruble';
                   line-height: 1;
 
                 }
               }
               &__control{
                 box-sizing: border-box;
-                margin: 0;
+                margin: 0 10px;
                 padding: 0;
                 display: flex;
                 align-items: center;
@@ -777,7 +884,7 @@ main {
                   font-family: 'core_rhino_45_regular',Helvetica,Arial,'Helvetica CY','Nimbus Sans L',sans-serif;
                   font-style: normal;
                   line-height: 32px;
-                  margin-bottom: 32px;
+                  margin: 0 10px;
                 }
               }
             }
@@ -794,6 +901,10 @@ main {
               margin: 32px 0;
               line-height: 0;
               font-size: 0;
+              @include media-breakpoint-only(lg) {
+                margin: 0 0 10px;
+                //margin: 32px 0;
+              }
             }
             &__chapters{
               display: flex;
@@ -802,8 +913,19 @@ main {
                 margin-bottom: 16px;
                 font-size: 1.125rem;
                 transition: all 0.4s;
+                font-family: 'core_rhino_35_light',Helvetica,Arial,'Helvetica CY','Nimbus Sans L',sans-serif;
+                border-bottom: 2px solid $catalog-text-color;
+                text-align: center;
+                @include mobile-all() {
+                  font-size: 1rem;
+                  padding-bottom: 19px;
+                  margin-bottom: 16px;
+                  width: 50%;
+                  margin-right: 0;
+                }
                 &:hover{
                   color: $border-bottom-orange;
+                  border-color: $border-bottom-orange;
                 }
               }
             }
@@ -811,18 +933,39 @@ main {
               font-size: 1rem;
               line-height: 1.4;
               letter-spacing: 0.02em;
+              font-family: 'helvetica_neue_cyr_light',Helvetica,Arial,'Helvetica CY','Nimbus Sans L',sans-serif;
+              color: $catalog-text-color;
+              @include mobile-all() {
+                font-size: 0.8125rem;
+                margin-bottom: 28px;
+                line-height: 1.5;
+                letter-spacing: 0.025rem;
+              }
             }
             &__nutrition{
               margin: 32px 0 16px;
+              @include media-breakpoint-only(lg) {
+                margin: 20px 0 -10px;
+              }
+              @include mobile-all() {
+                margin: 20px 0 0;
+              }
               &__item{
                 border: 1px solid $border-color;
                 display: inline-block;
                 height: 32px;
                 margin: 0 -1px 16px 0;
                 padding: 0 16px;
-                color: $border-color;
+                color: $catalog-text-color;
                 font-size: 0.8125rem;
                 line-height: 30px;
+                @include mobile-all() {
+                  margin-bottom: 0;
+                  margin-right: 12px;
+                  padding: 0;
+                  line-height: 21px;
+                  border: none;
+                }
               }
             }
           }
@@ -836,8 +979,9 @@ main {
   display: block;
   background-color: $bg-nav-color;
   @include mobile-all() {
+    display: none;
     margin-left: 0;
-    display: flex;
+    //display: flex;
     flex-direction: column;
     position: absolute;
     z-index: 20;

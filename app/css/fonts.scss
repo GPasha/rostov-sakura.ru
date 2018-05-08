@@ -4,6 +4,32 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: "core_rhino_25_thin";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/corerhino25thin.woff") format("woff");
+}
+
+@font-face {
+    font-family: "core_rhino_35_light";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/corerhino35light.woff") format("woff");
+}
+@font-face {
+    font-family: "core_rhino_45_regular";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/corerhino45regular.woff") format("woff");
+}
+@font-face {
+    font-family: "helvetica_neue_cyr_light";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/helveticaneuecyr-light.woff") format("woff");
+}
+
 //
 //// FONTS
 //$font_heading: 'Segoe UI', sans-serif;
@@ -100,3 +126,4 @@
 //            line-height: (all: #{$line_height_sm}px, sm: #{$line_height_sm * 0.9}px)
 //    ));
 //}
+
