@@ -11,10 +11,12 @@ $bg-nav-color: #fefcff;
 $bg-form-color-grey: #bdbdbd;
 $border-color: lightgrey;
 $border-bottom-orange: orange;
+$border-bottom-hover: darkorange;
 $catalog-text-color: #655e5e;
 $nutririon-text-color:#716c6c;
 $form-text-color: gray;
 $form-text-color2: #716c6c;
+$agree-text-color: white;
 
 
 
@@ -23,6 +25,7 @@ $header-form-height: 85;
 $header-height-mob: 60;
 $menuLeft-height: 85;
 $menuLeft-height-mob: 60;
+$agree-left: 300;
 html {
   height: 100%;
 }
@@ -272,7 +275,18 @@ header {
         font-size: 0.9rem;
       }
       &__correct{
-
+        a{
+          img{
+            @include mobile-all() {
+              width: 12px;
+            }
+          }
+        }
+        span{
+          @include mobile-all() {
+            font-size: 0.9rem;
+          }
+        }
       }
       &__sum{
         font-size: 0.9rem;
@@ -296,6 +310,8 @@ header {
       flex-wrap: nowrap;
       &__text{
         font-size: 0.9rem;
+        display: flex;
+        justify-content: space-between;
       }
       &__allsum{
         font-size: 0.9rem;
@@ -1009,10 +1025,49 @@ main {
     }
   }
 
+  .orderAgree {
+    position: fixed;
+    z-index: 49;
+    top:#{$header-form-height}px;
+    left: #{$agree-left}px;
+    width: calc(100vw - #{$agree-left}px);
+    height: calc(100vh - #{$header-form-height}px);
+    transform: translateX(100%);
+    transition: transform 0.4s;
+    &-active{
+      transform: translateX(0%);
+    }
+    &__cont{
+      position: absolute;
+      top: 10vh;
+      left: 10vw ;
+      width: calc(80vw - #{$agree-left}px);
+      height: calc(80vh - #{$header-form-height}px);
+      overflow: hidden;
+      overflow-y: auto;
+      line-height: 40px;
+      list-style-type: none;
+      font-style: normal;
+      font-family: 'core_rhino_45_regular',Helvetica,Arial,'Helvetica CY','Nimbus Sans L',sans-serif;
+      color: $agree-text-color;
+      &__title{
+        text-align: center;
+        font-size: 1.125rem;
+        font-weight: bold;
+      }
+      &__text{
+
+      }
+    }
+  }
+  .bgAgree{
+    background: rgba(57,57,57,0.8);
+  }
   .order{
     border-left: 1px solid $border-color;
     position: relative;
-    margin-top: #{$header-form-height}px;
+    top: #{$header-form-height}px;
+    margin-bottom: #{$header-form-height}px;
     padding: 0;
     //height: 100%;
     //height: calc(100vh - #{$header-form-height}px);
@@ -1026,7 +1081,8 @@ main {
       overflow: hidden;
       overflow-y: auto;
       padding-top: 0;
-      margin-top: 60px;
+      top: #{$header-form-height}px;
+      margin-bottom: #{$header-form-height}px;
     }
     &__left{
       padding: 0;
@@ -1097,7 +1153,18 @@ main {
               font-size: 0.9rem;
             }
             &__correct{
-
+              a{
+                img{
+                  @include mobile-all() {
+                    width: 12px;
+                  }
+                }
+              }
+              span{
+                @include mobile-all() {
+                  font-size: 0.9rem;
+                }
+              }
             }
             &__sum{
               font-size: 0.9rem;
@@ -1159,6 +1226,7 @@ main {
         font-size: 2.25rem;
         line-height: 1;
         padding: 20px 0;
+        color: $form-text-color2;
         @include mobile-all() {
           font-size: 2rem;
           text-align: center;
@@ -1197,6 +1265,14 @@ main {
     @include mobile-all() {
       font-size: 0.815rem;
     }
+    a{
+      color:$form-text-color2;
+      text-decoration: underline;
+      transition: color 0.3s;
+      &:hover{
+        color:$border-bottom-orange;
+      }
+    }
   }
   .inputDelivery{
     max-width: 1000px;
@@ -1207,6 +1283,32 @@ main {
     padding: 10px;
     margin-bottom: 32px;
     color: $border-color;
+  }
+  .inputDelivery2{
+    height: 96px;
+  }
+  .styleCheckbox{
+    opacity: 0.4;
+  }
+  .orderButton {
+    cursor: pointer;
+    background-color: orange;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 20px 0;
+    padding: 10px 20px;
+    color: white;
+    font-size: 1.25rem;
+    transition: background-color 0.3s;
+    @include mobile-all() {
+      padding: 10px;
+      width: 100%;
+
+    }
+    &:hover {
+      background-color: $border-bottom-hover;
+    }
   }
   form {
     display: block;
@@ -1228,7 +1330,7 @@ main {
         padding: 10px;
         line-height: 40px;
         list-style-type: none;
-        color: $form-text-color;
+        color: $form-text-color2;
         font-weight: normal;
         font-style: normal;
         font-family: 'core_rhino_45_regular',Helvetica,Arial,'Helvetica CY','Nimbus Sans L',sans-serif;
@@ -1241,6 +1343,7 @@ main {
         //line-height: 1.3;
         //line-height: 1.5;
         //padding: 0 20px 0 0;
+
         @include mobile-all() {
           position: relative;
           background-color: $bg-nav-color;
@@ -1251,11 +1354,7 @@ main {
           //overflow-y: auto;
           transition: all 0.5s;
         }
-        &:last-child {
-          padding: 13px 60px;
-        }
       }
-
     }
   }
 

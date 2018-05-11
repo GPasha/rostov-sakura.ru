@@ -146,6 +146,23 @@
 </aside>
 
 <main>
+    <div class="orderAgree bgAgree">
+        <div class="container">
+            <div class="orderAgree__cont row d-flex justify-content-center">
+                <div class="orderAgree__cont__title col p-0">Условия доставки</div>
+                <div class="orderAgree__cont__text col-12 p-0">Прием заказов: ежедневно с 10:00 до 04:45
+                    Территория доставки: Москва, Зеленоград, ближнее Подмосковье.
+                    Доставка: бесплатно
+                    Минимальная сумма заказа: 990 руб. с учетом всех скидок. Минимальную сумму территории Московской области уточняйте у оператора
+                    Время доставки: по Москве  60 минут, по остальной территории время доставки необходимо уточнять у оператора
+                    Оплата: наличными курьеру, банковской картой на сайте
+                    При оплате БАНКОВСКОЙ КАРТОЙ после нажатия на кнопку «Перейти к оплате картой», вы попадете на страницу оплаты, где будет необходимо ввести данные вашей пластиковой карты и подтвердить оплату.
+                    Вся передаваемая вами информация конфиденциальна и не подлежит разглашению. Данные вашей карты передаются в зашифрованном виде. Если на вашей карте есть в наличии необходимая сумма, она будет заблокирована и списана.
+                    Внесение изменений в предоплаченный заказ возможно исключительно в пределах суммы меньшей или равной заблокированной на карте. В случае отказа от заказа (или части его) денежные средства будут возвращены на вашу карту. Сроки возврата зависят от банка-эмитента и варьируются в пределах от 1 до 30 дней.
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="order container-fluid">
         <div class="row m-0">
             <div class="order__left col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -276,9 +293,26 @@
                             <label class="nameDelivery">
                                 Комментарий
                             </label>
-                            <textarea id="id_comment" class="inputDelivery" name="comment"></textarea>
+                            <textarea id="id_comment" class="inputDelivery inputDelivery2" name="comment"></textarea>
                         </div>
-
+                        <div class="order__right__delivery__address__item  col-12">
+                            <label class="nameDelivery custom-check custom-check_type_checkbox">
+                                <input class="styleCheckbox" name="tos_agree" value="1" data-custom="check" required="" aria-required="true" type="checkbox">
+                                С
+                                <a href="#">условиями доставки</a>
+                                согласен<sup>*</sup>
+                            </label>
+                        </div>
+                        <div class="order__right__delivery__address__item  col-12">
+                            <label class="nameDelivery custom-check custom-check_type_checkbox">
+                                <input class="styleCheckbox" name="conditions_agree" value="1" data-custom="check" required="" aria-required="true" type="checkbox">
+                                Я согласен с условиями
+                                <a href="#">использованием персональных данных</a><sup>*</sup>
+                            </label>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <button class="nameDelivery orderButton">Оформить заказ</button>
+                        </div>
                     </div>
                 </div>
 
@@ -369,7 +403,8 @@
 
 <script>
     $(window).on('load', function () {
-
+        var orderAgree = $(".orderAgree");
+        var orderAgreeBtn  = $("main .nameDelivery a");
 //        $('.menuLeft__nameMenu__item').on('click', function () {
 //           var $activeMenu = $('#' + $(this).data('id'));
 //           if ($activeMenu.length > 0 && !$activeMenu.hasClass('active')) {

@@ -6566,6 +6566,10 @@ header .navbar-head__basket p {
 
 .containerForm__form__allsum__text {
   font-size: 0.9rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .containerForm__form__allsum__allsum {
@@ -7036,10 +7040,55 @@ main .catalog__container__itemBig__rightContent__nutrition__item {
   line-height: 30px;
 }
 
+main .orderAgree {
+  position: fixed;
+  z-index: 49;
+  top: 85px;
+  left: 300px;
+  width: calc(100vw - 300px);
+  height: calc(100vh - 85px);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+}
+
+main .orderAgree-active {
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);
+}
+
+main .orderAgree__cont {
+  position: absolute;
+  top: 10vh;
+  left: 10vw;
+  width: calc(80vw - 300px);
+  height: calc(80vh - 85px);
+  overflow: hidden;
+  overflow-y: auto;
+  line-height: 40px;
+  list-style-type: none;
+  font-style: normal;
+  font-family: 'core_rhino_45_regular',Helvetica,Arial,'Helvetica CY','Nimbus Sans L',sans-serif;
+  color: white;
+}
+
+main .orderAgree__cont__title {
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+main .bgAgree {
+  background: rgba(57, 57, 57, 0.8);
+}
+
 main .order {
   border-left: 1px solid lightgrey;
   position: relative;
-  margin-top: 85px;
+  top: 85px;
+  margin-bottom: 85px;
   padding: 0;
 }
 
@@ -7180,6 +7229,7 @@ main .order__right__title {
   font-size: 2.25rem;
   line-height: 1;
   padding: 20px 0;
+  color: #716c6c;
 }
 
 main .order__right__delivery {
@@ -7212,6 +7262,16 @@ main .nameDelivery {
   color: #716c6c;
 }
 
+main .nameDelivery a {
+  color: #716c6c;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+main .nameDelivery a:hover {
+  color: orange;
+}
+
 main .inputDelivery {
   max-width: 1000px;
   width: 100%;
@@ -7221,6 +7281,31 @@ main .inputDelivery {
   padding: 10px;
   margin-bottom: 32px;
   color: lightgrey;
+}
+
+main .inputDelivery2 {
+  height: 96px;
+}
+
+main .styleCheckbox {
+  opacity: 0.4;
+}
+
+main .orderButton {
+  cursor: pointer;
+  background-color: orange;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 20px 0;
+  padding: 10px 20px;
+  color: white;
+  font-size: 1.25rem;
+  transition: background-color 0.3s;
+}
+
+main .orderButton:hover {
+  background-color: darkorange;
 }
 
 main form {
@@ -7242,16 +7327,12 @@ main form ul li {
   padding: 10px;
   line-height: 40px;
   list-style-type: none;
-  color: gray;
+  color: #716c6c;
   font-weight: normal;
   font-style: normal;
   font-family: 'core_rhino_45_regular',Helvetica,Arial,'Helvetica CY','Nimbus Sans L',sans-serif;
   font-style: normal;
   font-size: 1.125rem;
-}
-
-main form ul li:last-child {
-  padding: 13px 60px;
 }
 
 .footer {
@@ -10930,6 +11011,16 @@ main form ul li:last-child {
     align-content: flex-start;
   }
 
+  .containerForm__form__products__correct a img {
+    /* mobile-all */
+    width: 12px;
+  }
+
+  .containerForm__form__products__correct span {
+    /* mobile-all */
+    font-size: 0.9rem;
+  }
+
   .containerForm__form__order__basketButton {
     /* mobile-all */
     padding: 0 10px;
@@ -11214,7 +11305,8 @@ main form ul li:last-child {
     overflow: hidden;
     overflow-y: auto;
     padding-top: 0;
-    margin-top: 60px;
+    top: 85px;
+    margin-bottom: 85px;
   }
 
   main .order__left__containerForm__form__basket__btn {
@@ -11227,6 +11319,16 @@ main form ul li:last-child {
   main .order__left__containerForm__form__basket__title {
     /* mobile-all */
     font-size: 2rem;
+  }
+
+  main .order__left__containerForm__form__products__correct a img {
+    /* mobile-all */
+    width: 12px;
+  }
+
+  main .order__left__containerForm__form__products__correct span {
+    /* mobile-all */
+    font-size: 0.9rem;
   }
 
   main .order__left__containerForm__form__order__basketButton {
@@ -11244,6 +11346,12 @@ main form ul li:last-child {
   main .nameDelivery {
     /* mobile-all */
     font-size: 0.815rem;
+  }
+
+  main .orderButton {
+    /* mobile-all */
+    padding: 10px;
+    width: 100%;
   }
 
   main form ul {
