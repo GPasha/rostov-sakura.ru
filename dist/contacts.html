@@ -12,6 +12,17 @@
 
     <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">-->
+    <!--<script>-->
+        <!--window.onload = function () {-->
+            <!--var submenu = document.querySelector(".submenu");-->
+            <!--var submenuArrow  = document.querySelector(".submenu li a img");-->
+            <!--function submenuLeft() {-->
+                <!--//submenu =document.style.transform = 'translateX(-121.5%)';-->
+                <!--submenuArrow =document.style.transform = 'rotate(0)';-->
+                <!--return false;-->
+            <!--}-->
+        <!--}-->
+    <!--</script>-->
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
     <!--<script src="groups.js" type="text/javascript"></script>-->
@@ -171,7 +182,7 @@
                 <div class="footer__info__text__orders">
                     <p>Онлайн сервис заказа суши<br>и других блюд в Ростове.</p>
 
-                    <p>Прием заказов: c 10:00 до 4:45 <br>
+                    <p>Прием заказов: c 10:00 до 23:00 <br>
                         Телефон: +8 988 946 94 33
                     </p>
                 </div>
@@ -202,7 +213,7 @@
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <!-- styles -->
-<link rel="stylesheet" href="css/main.css" as="style"/>
+<!--<link rel="stylesheet" href="css/main.css" as="style"/>-->
 
 <!-- scripts -->
 <script type="text/javascript" src="js/main.js"></script>
@@ -216,8 +227,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
         integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
-<script src="js/libs.min.js"></script>
-<script src="js/common.js"></script>
+<!--<script src="js/libs.min.js"></script>-->
+<!--<script src="js/common.js"></script>-->
 <!--<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
 <!--<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
 <!--<script type="text/javascript" src="js/scripts/slick.min.js"></script>-->
@@ -227,11 +238,11 @@
 <!--<script src="js/fotorama.js"></script>-->
 
 <!-- 1. Link to jQuery (1.8 or later), -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB -->
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> &lt;!&ndash; 33 KB &ndash;&gt;-->
 
 <!-- fotorama.css & fotorama.js. -->
-<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+<!--<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> &lt;!&ndash; 3 KB &ndash;&gt;-->
+<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> &lt;!&ndash; 16 KB &ndash;&gt;-->
 
 <!--<script>-->
     <!--$(document).ready(function(){-->
@@ -249,6 +260,9 @@
             name: "Sacura",
             style: "islands#redIcon",
             items: [
+                {
+                    name: " <img src=\"img/left.png\" width=\"30\" alt=\"left submenu\">"
+                },
                 {
                     center: [47.228382, 39.703556],
                     name: "<h4>Буденновский проспект, 67/50</h4><span> Центр, угол с ул. Лермонтовской<br>\n" +
@@ -274,7 +288,7 @@
                 {
                     center: [47.287668, 39.708955],
                     name: "<h4>бульвар Комарова, 9</h4><span>\n" +
-                    "                                    СЖМ, между ул.Добровольского и пр.Космонавтов<br>\n" +
+                    "                                    СЖМ, между ул.Добровольского<br>и пр.Космонавтов<br>\n" +
                     "                                    +7 (919) 898-46-96<br>\n" +
                     "                                    Время работы: пн-вс: 10:00 - 23:00\n" +
                     "                                </span>"
@@ -359,27 +373,22 @@
         menu.appendTo($('body'));
         // Выставляем масштаб карты чтобы были видны все группы.
         myMap.setBounds(myMap.geoObjects.getBounds());
+
+        var $submenu = $(".submenu");
+        var $submenuArrow  = $(".submenu li a img");
+
+        $submenuArrow.on('click', function () {
+
+            $submenuArrow.toggleClass("arrowRight");
+            $submenu.toggleClass("submenuLeft");
+
+            return false;
+        });
     }
 </script>
 <script>
 
     $(window).on('load', function () {
-
-//        $('.menuLeft__nameMenu__item').on('click', function () {
-//           var $activeMenu = $('#' + $(this).data('id'));
-//           if ($activeMenu.length > 0 && !$activeMenu.hasClass('active')) {
-//               var dX = parseInt($activeMenu.offset().left);
-//               var rX = parseInt($('.menuLeft__sections').offset().left);
-//
-//               $('.menuLeft__sections').css('transform', 'translateX(-' + dX + 'px)');
-//
-//               $activeMenu.parent().find('.active').removeClass('active');
-//
-//               $activeMenu.addClass('active');
-//
-//               console.log('$activeMenu', $activeMenu.offset().left);
-//           }
-//        });
 
         var $mainLeft = $(".menuLeft__sections");
         var $mainLeftCat = $(".sections_list");
@@ -444,6 +453,7 @@
         }
     });
 </script>
+
 <!--<script>-->
     <!--var btn = document.querySelector(".slider");-->
     <!--var images = document.querySelectorAll(".slider img");-->
