@@ -41,7 +41,7 @@ var path = {
     },
     src: {
         html: 'app/*.html',
-        js: 'app/js/main.js',
+        js: 'app/js/**/*.js',
         style: 'app/css/main.scss',
         img: 'app/img/**/*.*',
         fonts: 'app/fonts/**/*.*'

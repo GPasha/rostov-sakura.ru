@@ -6840,6 +6840,18 @@ main .contacts__menu {
   position: relative;
 }
 
+main .content .menuRight .slider {
+  background-color: #fefcff;
+  transition: all 1s;
+}
+
+main .content .menuRight .slider a img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  transition: all 1s;
+}
+
 main .catalog {
   border-left: 1px solid lightgrey;
   margin-top: 85px;
@@ -7552,6 +7564,19 @@ main form ul li {
 
 .footer__info__menu ul li a:hover {
   color: darkorange;
+}
+
+.footer__info__menu ul li {
+  display: block;
+}
+
+.footer__info__menu ul li a {
+  text-align: center;
+  border-bottom: 2px solid lightgrey;
+}
+
+.footer__info__menu p {
+  display: block;
 }
 
 .footer__info__delivery {
@@ -11056,6 +11081,7 @@ main form ul li {
     align-items: center;
     -ms-flex-pack: center;
     justify-content: center;
+    padding: 0;
   }
 
   .footer__info__text {
@@ -11064,6 +11090,11 @@ main form ul li {
 
   .footer__info__menu {
     width: 238.017px;
+  }
+
+  .footer__info__menu {
+    margin: 0;
+    padding: 0;
   }
 
   .footer__info__delivery {
@@ -11313,6 +11344,11 @@ main form ul li {
     /* mobile-all */
     margin-left: 0;
     width: 100vw;
+  }
+
+  main .content .menuRight .slider {
+    /* mobile-all */
+    display: none;
   }
 
   main .catalog {
@@ -11607,13 +11643,14 @@ main form ul li {
 
   .footer {
     /* mobile-all */
-    display: none;
     margin-left: 0;
+    display: -ms-flexbox;
+    display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
     position: absolute;
     z-index: 20;
-    top: -50px;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -11640,8 +11677,8 @@ main form ul li {
     box-sizing: border-box;
     padding: 30px 20px;
     position: relative;
+    top: 60px;
     width: 100vw;
-    margin: 100px 0 0 -280px;
     font-size: 1.5rem;
     line-height: 50px;
     letter-spacing: 3px;
@@ -11651,17 +11688,9 @@ main form ul li {
     overflow-y: auto;
   }
 
-  .footer__info__menu ul li {
-    display: block;
-  }
-
-  .footer__info__menu ul li a {
-    text-align: center;
-    border-bottom: 2px solid lightgrey;
-  }
-
   .footer__info__menu p {
-    display: block;
+    /* mobile-all */
+    margin-top: 70px;
   }
 
   .footer__info__delivery {

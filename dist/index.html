@@ -43,9 +43,9 @@
     <form class="containerForm__form border">
         <ul>
             <li class="containerForm__form__basket border-bottom">
-                <a class="containerForm__form__basket__btn btn_link" href="#" title="вернуться назад">
-                    <img class="icon icon-arrow-back" src="img/icon_arrow_back.png" width="20">
-                </a>
+                <!--<a class="containerForm__form__basket__btn btn_link" href="#" title="вернуться назад">-->
+                    <!--<img class="icon icon-arrow-back" src="img/icon_arrow_back.png" width="20">-->
+                <!--</a>-->
                 <div class="containerForm__form__basket__title">Корзина заказа</div>
             </li>
             <li class="containerForm__form__myBasket border-bottom">Моя корзина</li>
@@ -580,14 +580,14 @@
 <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"-->
         <!--integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"-->
         <!--crossorigin="anonymous"></script>-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
-        integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
-        integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-        crossorigin="anonymous"></script>
-<script src="js/libs.min.js"></script>
-<script src="js/common.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"-->
+        <!--integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"-->
+        <!--crossorigin="anonymous"></script>-->
+<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"-->
+        <!--integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"-->
+        <!--crossorigin="anonymous"></script>-->
+<!--<script src="js/libs.min.js"></script>-->
+<!--<script src="js/common.js"></script>-->
 <!--<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
 <!--<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
 <!--<script type="text/javascript" src="js/scripts/slick.min.js"></script>-->
@@ -603,19 +603,176 @@
 <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
 
-<!--<script>-->
-    <!--$(document).ready(function(){-->
-        <!--$('.slider').slick({-->
-            <!--slidesToShow: 1,-->
-            <!--slidesToScroll: 1,-->
-            <!--autoplay: true,-->
-            <!--autoplaySpeed: 2000,-->
-            <!--});-->
-    <!--});-->
-<!--</script>-->
+
 
 <script>
+
+    //Скрипт яндекс-карты. Задаем название и координаты локаций.
+
+    var groups = [
+        {
+            name: "Sacura",
+            style: "islands#redIcon",
+            items: [
+                {
+                    name: " <img src=\"img/left.png\" width=\"30\" alt=\"left submenu\">"
+                },
+                {
+                    center: [47.228382, 39.703556],
+                    name: "<h4>Буденновский проспект, 67/50</h4><span> Центр, угол с ул. Лермонтовской<br>\n" +
+                    "                                    8 988 946 94 33<br>\n" +
+                    "                                    Время работы: с 10-00 до 23-00</span>"
+                },
+                {
+                    center: [47.208627, 39.629361],
+                    name: "<h4>Коммунистический проспект, 32</h4><span>\n" +
+                    "                                    м-н Западный<br>\n" +
+                    "                                    +7 (919) 898-46-96<br>\n" +
+                    "                                    Время работы: пн-вс: 10:00 - 23:00\n" +
+                    "                                </span>"
+                },
+                {
+                    center: [47.138520, 39.751488],
+                    name: "<h4>улица Кирова, 18А</h4><span>\n" +
+                    "                                    угол с ул. Энгельса<br>\n" +
+                    "                                    +7 (928) 606-44-99<br>\n" +
+                    "                                    Время работы: пн-вс: 10:00 - 23:00\n" +
+                    "                                </span>"
+                },
+                {
+                    center: [47.287668, 39.708955],
+                    name: "<h4>бульвар Комарова, 9</h4><span>\n" +
+                    "                                    СЖМ, между ул.Добровольского<br>и пр.Космонавтов<br>\n" +
+                    "                                    +7 (919) 898-46-96<br>\n" +
+                    "                                    Время работы: пн-вс: 10:00 - 23:00\n" +
+                    "                                </span>"
+                }
+            ]}
+    ];
+
+
+    ymaps.ready(init);
+
+    function init() {
+
+        // Создание экземпляра карты.
+        var myMap = new ymaps.Map('map', {
+                center: [47.208627, 39.629361],
+                zoom: 14
+            }, {
+                searchControlProvider: 'yandex#search'
+            }),
+            // Контейнер для меню.
+            menu = $('<ul class="menu"/>');
+
+        for (var i = 0, l = groups.length; i < l; i++) {
+            createMenuGroup(groups[i]);
+        }
+
+        function createMenuGroup (group) {
+            // Пункт меню.
+            var menuItem = $('<li><a href="#">' + group.name + '</a></li>'),
+                // Коллекция для геообъектов группы.
+                collection = new ymaps.GeoObjectCollection(null, { preset: group.style }),
+                // Контейнер для подменю.
+                submenu = $('<ul class="submenu"/>');
+
+            // Добавляем коллекцию на карту.
+            myMap.geoObjects.add(collection);
+            // Добавляем подменю.
+            menuItem
+                .append(submenu)
+                // Добавляем пункт в меню.
+                .appendTo(menu)
+                // По клику удаляем/добавляем коллекцию на карту и скрываем/отображаем подменю.
+                .find('a')
+                .bind('click', function () {
+                    if (collection.getParent()) {
+                        myMap.geoObjects.remove(collection);
+                        submenu.hide();
+                    } else {
+                        myMap.geoObjects.add(collection);
+                        submenu.show();
+                    }
+                });
+            for (var j = 0, m = group.items.length; j < m; j++) {
+                createSubMenu(group.items[j], collection, submenu);
+            }
+        }
+
+        function createSubMenu (item, collection, submenu) {
+            // Пункт подменю.
+            var submenuItem = $('<li><a href="#">' + item.name + '</a></li>'),
+                // Создаем метку.
+                placemark = new ymaps.Placemark(item.center, { balloonContent: item.name });
+
+            // Добавляем метку в коллекцию.
+            collection.add(placemark);
+            // Добавляем пункт в подменю.
+            submenuItem
+                .appendTo(submenu)
+                // При клике по пункту подменю открываем/закрываем баллун у метки.
+                .find('a')
+                .bind('click', function () {
+                    if (!placemark.balloon.isOpen()) {
+                        placemark.balloon.open();
+                    } else {
+                        placemark.balloon.close();
+                    }
+                    return false;
+                });
+        }
+
+        // Добавляем меню в тэг BODY.
+        menu.appendTo($('body'));
+        // Выставляем масштаб карты чтобы были видны все группы.
+        myMap.setBounds(myMap.geoObjects.getBounds());
+
+
+        //ДОБАВЛЯЕМ НЕМНОГО АНИМАЦИИ. Движение submenu влево-вправо.
+
+        var $submenu = $(".submenu");
+        var $submenuArrow  = $(".submenu li a img");
+
+        $submenuArrow.on('click', function () {
+
+            $submenuArrow.toggleClass("arrowRight");
+            $submenu.toggleClass("submenuLeft");
+
+            return false;
+        });
+    }
+</script>
+<script>
     $(window).on('load', function () {
+
+        //Условия доставки и соглашение об использовании данных
+
+        var $orderAgree = $(".orderAgree");
+        var $orderAgreeBtn  = $("main .tosAgree a");
+        var $orderAgreeclose = $(".orderAgree__cont__title a img");
+
+        var $conditionsAgree = $(".conditionsAgree");
+        var $conditionsAgreeBtn  = $("main .condAgree a");
+        var $conditionsAgreeclose = $(".conditionsAgree__cont__title a img");
+
+        $orderAgreeBtn.on('click', function () {
+            $orderAgree.toggleClass("showOrderAgree");
+            return false;
+        });
+        $orderAgreeclose.on('click', function () {
+            $orderAgree.toggleClass("showOrderAgree");
+            return false;
+        });
+
+        $conditionsAgreeBtn.on('click', function () {
+            $conditionsAgree.toggleClass("showOrderAgree");
+            return false;
+        });
+        $conditionsAgreeclose.on('click', function () {
+            $conditionsAgree.toggleClass("showOrderAgree");
+            return false;
+        });
 
 //        $('.menuLeft__nameMenu__item').on('click', function () {
 //           var $activeMenu = $('#' + $(this).data('id'));
@@ -632,19 +789,19 @@
 //               console.log('$activeMenu', $activeMenu.offset().left);
 //           }
 //        });
+        //Левое меню и форма заказа
 
         var $mainLeft = $(".menuLeft__sections");
         var $mainLeftCat = $(".sections_list");
         var $mainLeftIng = $(".ingredients_list");
-//        var $section_btn = $(".menuLeft .section_btn");
-//        var $ingredient_btn = $(".menuLeft .ingredient_btn");
+
         var $menu_btn = $(".containerLogo__hamburger img");
         var $form_btn = $(".navbar-head__basket");
 
         var $menuLeft = $(".menuLeft");
         var $form = $(".containerForm");
-        var $menuFooter = $(".menuRight .footer .menuFooter");
-        var $menuRight = $(".menuRight");
+        //var $menuFooter = $(".menuRight .footer .menuFooter");
+        //var $menuRight = $(".menuRight");
 
 
         var $section_btn = $(".menuSection-1");
@@ -677,37 +834,8 @@
             $mainLeftCat.addClass("active");
             $section_btn.addClass("activeBord");
         });
-        if ($(window).width() < 799) {
-
-            $ingredient_btn.on('click', function () {
-                $mainLeft.addClass("active");
-                $section_btn.removeClass("activeBord");
-                $ingredient_btn.addClass("activeBord");
-            });
-            $section_btn.on('click', function () {
-                $mainLeft.removeClass("active");
-                $section_btn.addClass("activeBord");
-                $ingredient_btn.removeClass("activeBord");
-            });
-//            $menu_btn.on('click', function () {
-//                $menuFooter.toggleClass("showForm");
-//            });
-
-        }
     });
 </script>
-<!--<script>-->
-    <!--var btn = document.querySelector(".slider");-->
-    <!--var images = document.querySelectorAll(".slider img");-->
 
-    <!--btn.onclick = function (){-->
-        <!--images[i].className = "";-->
-        <!--i++;-->
-        <!--if (i >= images.length){-->
-        <!--i = 0;-->
-        <!--}-->
-        <!--images[i].className = "showed";-->
-    <!--}-->
-<!--</script>-->
 </body>
 </html>
