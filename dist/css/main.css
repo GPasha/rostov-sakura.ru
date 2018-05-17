@@ -6899,6 +6899,8 @@ main .catalog__filter__left__title__text {
 main .catalog__filter__left__sort {
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-item-align: center;
+  align-self: center;
   transition: all .2s ease;
   cursor: pointer;
   font-size: 12px;
